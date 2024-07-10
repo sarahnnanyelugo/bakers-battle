@@ -16,6 +16,8 @@
     "react-phone-number-input": "^3.4.3",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "react-signature": "^1.2.4",
+    "react-signature-canvas-zwb": "^1.0.4",
     "sass": "^1.77.6",
     "web-vitals": "^2.1.4"
   },

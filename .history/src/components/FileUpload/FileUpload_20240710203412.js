@@ -76,7 +76,7 @@ export function FileUpload(props) {
             </div>
           )}
         </ImageUploading>
-        <center style={{ marginTop: "-30px" }}>
+        <center>
           {" "}
           <small>SVG, PNG, JPG or GIF (max. 800x400px)</small>
         </center>

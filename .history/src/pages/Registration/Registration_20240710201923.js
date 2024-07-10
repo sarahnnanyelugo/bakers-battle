@@ -89,7 +89,7 @@ export const Registration = () => {
               </div>
             </div>
           </form>
-          <div className="d-md-flex file" style={{ marginTop: "80px" }}>
+          <div className="d-md-flex" style={{ marginTop: "80px" }}>
             <div className="d-md-flex col-md-6">
               <div className="col-md-5">
                 {" "}

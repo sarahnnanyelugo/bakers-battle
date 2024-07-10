@@ -20,7 +20,7 @@ export const Registration = () => {
           {" "}
           <form className="col-md-12">
             <div className="d-flex">
-              <div style={{ flexGrow: 1 }} className="col-12 col-md-6">
+              <div style={{ flexGrow: 1 }}>
                 {" "}
                 <h2>
                   Baking Contest <br />
@@ -89,7 +89,7 @@ export const Registration = () => {
               </div>
             </div>
           </form>
-          <div className="d-md-flex file" style={{ marginTop: "80px" }}>
+          <div className="d-md-flex" style={{ marginTop: "80px" }}>
             <div className="d-md-flex col-md-6">
               <div className="col-md-5">
                 {" "}
@@ -180,8 +180,6 @@ export const Registration = () => {
             <input type="date" />
             <div className="col-md-6"></div>
           </div>
-          <br />
-          <br />
           <hr />
           <center>
             <button class="button-57" role="button">

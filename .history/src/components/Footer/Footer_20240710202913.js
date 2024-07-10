@@ -40,6 +40,9 @@ export const Footer = () => {
             <li>
               <Link to={"/"}>Register</Link>
             </li>{" "}
+            <li>
+              <Link to={"/"}></Link>
+            </li>
           </ul>
         </div>
       </div>

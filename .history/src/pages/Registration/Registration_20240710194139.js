@@ -6,6 +6,7 @@ import { FileUpload } from "../../components/FileUpload/FileUpload";
 import Photo from "../../assets/images/photo.png";
 import Sample from "../../assets/images/sample.png";
 import { useRef, useCallback, useState, useEffect } from "react";
+import SignatureCanvas from "react-signature-canvas";
 export const Registration = () => {
   return (
     <>
@@ -20,7 +21,7 @@ export const Registration = () => {
           {" "}
           <form className="col-md-12">
             <div className="d-flex">
-              <div style={{ flexGrow: 1 }} className="col-12 col-md-6">
+              <div style={{ flexGrow: 1 }}>
                 {" "}
                 <h2>
                   Baking Contest <br />
@@ -89,7 +90,7 @@ export const Registration = () => {
               </div>
             </div>
           </form>
-          <div className="d-md-flex file" style={{ marginTop: "80px" }}>
+          <div className="d-md-flex" style={{ marginTop: "80px" }}>
             <div className="d-md-flex col-md-6">
               <div className="col-md-5">
                 {" "}
@@ -178,11 +179,7 @@ export const Registration = () => {
           </div>
           <div className="col-md-6" style={{ marginTop: "30px" }}>
             <input type="date" />
-            <div className="col-md-6"></div>
           </div>
-          <br />
-          <br />
-          <hr />
           <center>
             <button class="button-57" role="button">
               <span class="text">Register</span>

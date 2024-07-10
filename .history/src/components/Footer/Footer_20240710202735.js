@@ -16,7 +16,7 @@ export const Footer = () => {
           <img className="img" src={Logo} alt="Scholar" width="100%" />
         </div>
       </center>{" "}
-      <div className="d-md-flex col-md-10 offset-md-1 mobile-padding">
+      <div className="d-md-flex col-md-10 offset-md-1">
         <div className="col-md-5">
           <h4>About Us</h4>
           <p>
@@ -40,6 +40,9 @@ export const Footer = () => {
             <li>
               <Link to={"/"}>Register</Link>
             </li>{" "}
+            <li>
+              <Link to={"/"}></Link>
+            </li>
           </ul>
         </div>
       </div>
