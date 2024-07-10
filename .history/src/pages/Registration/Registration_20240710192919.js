@@ -162,7 +162,6 @@ export const Registration = () => {
               injuries.
             </li>
           </ul>
-          <h6>Name of Undersigned</h6>
           <div
             className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3"
             style={{ marginTop: "20px" }}
@@ -172,12 +171,12 @@ export const Registration = () => {
               <small>First Name</small>
             </div>{" "}
             <div className="col">
-              <input type="text" />
+              <select>
+                <option>Male</option>
+                <option>FeMale</option>
+              </select>
               <small>Last Name</small>
             </div>
-          </div>
-          <div className="col-md-6" style={{ marginTop: "30px" }}>
-            <input type="date" />
           </div>
           <center>
             <button class="button-57" role="button">

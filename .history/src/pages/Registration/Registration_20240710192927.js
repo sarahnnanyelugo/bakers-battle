@@ -172,12 +172,12 @@ export const Registration = () => {
               <small>First Name</small>
             </div>{" "}
             <div className="col">
-              <input type="text" />
+              <select>
+                <option>Male</option>
+                <option>FeMale</option>
+              </select>
               <small>Last Name</small>
             </div>
-          </div>
-          <div className="col-md-6" style={{ marginTop: "30px" }}>
-            <input type="date" />
           </div>
           <center>
             <button class="button-57" role="button">

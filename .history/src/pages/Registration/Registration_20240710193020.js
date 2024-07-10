@@ -176,9 +176,7 @@ export const Registration = () => {
               <small>Last Name</small>
             </div>
           </div>
-          <div className="col-md-6" style={{ marginTop: "30px" }}>
-            <input type="date" />
-          </div>
+          <div className="col-md-6"></div>
           <center>
             <button class="button-57" role="button">
               <span class="text">Register</span>

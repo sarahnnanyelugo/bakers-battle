@@ -176,7 +176,7 @@ export const Registration = () => {
               <small>Last Name</small>
             </div>
           </div>
-          <div className="col-md-6" style={{ marginTop: "30px" }}>
+          <div className="col-md-6" style={{ marginTop: "10px" }}>
             <input type="date" />
           </div>
           <center>

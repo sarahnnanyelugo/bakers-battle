@@ -67,42 +67,39 @@ export const Navbar = () => {
               />
             </div>
           </div>
-          <div class="aside-section aside-right col-md-8 ">
-            <div className="col-md-4 offset-md-4">
-              {" "}
-              <ul class="aside-list ">
-                <li>
-                  <Link to={"/"} class="aside-anchor" onClick={closeMenu}>
-                    HOME
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/about"} class="aside-anchor">
-                    ABOUT
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/faq"} class="aside-anchor" onClick={closeMenu}>
-                    FAQs
-                  </Link>
-                </li>
-                <li onClick={closeMenu}>
-                  <Link to={"/sponsors"} class="aside-anchor">
-                    SPONSORS
-                  </Link>
-                </li>{" "}
-                <li onClick={closeMenu}>
-                  <a href="" class="aside-anchor">
-                    CONTACT
-                  </a>
-                </li>
-                <li onClick={closeMenu}>
-                  <Link to={"/registration"} class="aside-anchor">
-                    REGISTER
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <div class="aside-section aside-right col-md-8">
+            <ul class="aside-list offset-md-4">
+              <li>
+                <Link to={"/"} class="aside-anchor" onClick={closeMenu}>
+                  HOME
+                </Link>
+              </li>
+              <li>
+                <Link to={"/about"} class="aside-anchor">
+                  ABOUT
+                </Link>
+              </li>
+              <li>
+                <Link to={"/faq"} class="aside-anchor" onClick={closeMenu}>
+                  FAQs
+                </Link>
+              </li>
+              <li onClick={closeMenu}>
+                <Link to={"/sponsors"} class="aside-anchor">
+                  SPONSORS
+                </Link>
+              </li>{" "}
+              <li onClick={closeMenu}>
+                <a href="" class="aside-anchor">
+                  CONTACT
+                </a>
+              </li>
+              <li onClick={closeMenu}>
+                <Link to={"/registration"} class="aside-anchor">
+                  REGISTER
+                </Link>
+              </li>
+            </ul>
           </div>
         </aside>
       </main>

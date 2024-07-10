@@ -138,47 +138,9 @@ export const Registration = () => {
               the online voters, hence keep an opem mind. There will be no
               expectations.
             </li>
+            <li></li>
+            <li></li>
           </ul>
-          <p>I, undersigned, agree with the following statements:</p>
-          <ul className="rules">
-            <li>
-              <input type="checkbox" /> I am the participant of the contest or
-              the parent / guardian of the participant
-            </li>
-            <li>The decision to participate was take with free will.</li>
-            <li>
-              {" "}
-              <input type="checkbox" />I understand, appreciate and acknowledge
-              that property damage and injuries are common on such event. I
-              participate in this voluntarily and with full knowledge of the
-              inherent risks.
-            </li>
-            <li>
-              {" "}
-              <input type="checkbox" />I hereby release any and all rights that
-              either my assigns or I may have against the contest organization,
-              the supervisors, hosts agents or employees arising from my
-              participation, including but not limited to property damage and
-              injuries.
-            </li>
-          </ul>
-          <h6>Name of Undersigned</h6>
-          <div
-            className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3"
-            style={{ marginTop: "20px" }}
-          >
-            <div className="col">
-              <input type="text" />
-              <small>First Name</small>
-            </div>{" "}
-            <div className="col">
-              <input type="text" />
-              <small>Last Name</small>
-            </div>
-          </div>
-          <div className="col-md-6" style={{ marginTop: "30px" }}>
-            <input type="date" />
-          </div>
           <center>
             <button class="button-57" role="button">
               <span class="text">Register</span>
