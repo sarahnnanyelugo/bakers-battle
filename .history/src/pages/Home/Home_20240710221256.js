@@ -223,7 +223,7 @@ export const Home = () => {
                   className="img  offset-md-"
                   src={Sponsor2}
                   alt="Scholar"
-                  width="95%"
+                  width="100%"
                 />
               </center>
             </div>

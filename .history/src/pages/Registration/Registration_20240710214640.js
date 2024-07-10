@@ -166,7 +166,7 @@ export const Registration = () => {
               <input type="checkbox" /> I am the participant of the contest or
               the parent / guardian of the participant
             </li>
-            <li>The decision to participate was taken with free will.</li>
+            <li>The decision to participate was take with free will.</li>
             <li>
               {" "}
               <input type="checkbox" />I understand, appreciate and acknowledge
