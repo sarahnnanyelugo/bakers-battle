@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./registration.scss";
 import Img from "../../assets/images/contest.png";
 import { Link } from "react-router-dom";
@@ -6,21 +7,6 @@ import Photo from "../../assets/images/photo.png";
 import Sample from "../../assets/images/sample.png";
 import { useRef, useCallback, useState, useEffect } from "react";
 export const Registration = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  const handleScroll = () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    const windowScroll = scrollTop;
-    const windowHeight = scrollHeight - clientHeight;
-    const scrolled = (windowScroll / windowHeight) * 100;
-
-    setScrollProgress(scrolled);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   return (
     <>
       <div className="registration-div">
@@ -31,16 +17,7 @@ export const Registration = () => {
 
       <div className="registration-form">
         <div className="form col-md-8 offset-md-2">
-          <div className="progress-bar">
-            <div
-              className="progress-bar-fill"
-              style={{ width: `${scrollProgress}%` }}
-            >
-              <span className="progress-bar-text">
-                {Math.round(scrollProgress)}%
-              </span>
-            </div>
-          </div>
+          {" "}
           <form className="col-md-12">
             <div className="d-flex">
               <div style={{ flexGrow: 1 }} className="col-12 col-md-6">

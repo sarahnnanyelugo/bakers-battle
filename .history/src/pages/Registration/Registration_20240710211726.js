@@ -31,16 +31,10 @@ export const Registration = () => {
 
       <div className="registration-form">
         <div className="form col-md-8 offset-md-2">
-          <div className="progress-bar">
-            <div
-              className="progress-bar-fill"
-              style={{ width: `${scrollProgress}%` }}
-            >
-              <span className="progress-bar-text">
-                {Math.round(scrollProgress)}%
-              </span>
-            </div>
-          </div>
+          <div
+            className="progress-bar"
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
           <form className="col-md-12">
             <div className="d-flex">
               <div style={{ flexGrow: 1 }} className="col-12 col-md-6">
