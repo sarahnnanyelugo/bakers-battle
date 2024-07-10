@@ -1,0 +1,12 @@
+.app-btn {
+  color: #fff;
+  background: #dc727c;
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: solid 1px #dc727c;
+  &:hover {
+    color: #dc727c;
+    background: #fff;
+    transition: 0.5s ease;
+  }
+}
