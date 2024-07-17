@@ -1,0 +1,22 @@
+.about-div {
+  height: 600px;
+  //   background: url("../../assets/images/landing.webp");
+  background: url("../../assets/images/landing.webp");
+  margin-top: -800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 120px;
+  h1 {
+    font-size: 60px;
+    @media screen and (max-width: 820px) {
+      font-size: 20px;
+    }
+  }
+}
+.about-start {
+  //   margin-top: -600px;
+  h1 {
+    margin-bottom: 30px;
+  }
+}
