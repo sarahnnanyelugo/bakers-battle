@@ -82,12 +82,8 @@ export const Footer = () => {
           </li>
         </ul>
       </center>
-      <br />
       <center>
-        <p>
-          © Copyright 2024 <Link to={"/"}>Hexxondiv Global Services</Link>. All
-          Rights Reserved
-        </p>
+        <p>© Copyright 2024 Hexxondiv Global Services. All Rights Reserved</p>
       </center>
     </footer>
   );

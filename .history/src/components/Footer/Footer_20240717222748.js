@@ -82,13 +82,7 @@ export const Footer = () => {
           </li>
         </ul>
       </center>
-      <br />
-      <center>
-        <p>
-          © Copyright 2024 <Link to={"/"}>Hexxondiv Global Services</Link>. All
-          Rights Reserved
-        </p>
-      </center>
+      <center></center>
     </footer>
   );
 };

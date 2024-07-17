@@ -8,7 +8,7 @@ import { IoLogoYoutube } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { BsFillPatchQuestionFill } from "react-icons/bs";
-import { FaPhoneAlt } from "react-icons/fa";
+import { MdContactSupport } from "react-icons/md";
 import { GiArchiveRegister } from "react-icons/gi";
 
 export const Footer = () => {
@@ -81,13 +81,6 @@ export const Footer = () => {
             </Link>
           </li>
         </ul>
-      </center>
-      <br />
-      <center>
-        <p>
-          © Copyright 2024 <Link to={"/"}>Hexxondiv Global Services</Link>. All
-          Rights Reserved
-        </p>
       </center>
     </footer>
   );

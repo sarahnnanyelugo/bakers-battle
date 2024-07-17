@@ -7,9 +7,6 @@ import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoYoutube } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import { BsFillPatchQuestionFill } from "react-icons/bs";
-import { FaPhoneAlt } from "react-icons/fa";
-import { GiArchiveRegister } from "react-icons/gi";
 
 export const Footer = () => {
   return (
@@ -33,20 +30,14 @@ export const Footer = () => {
         </div>
         <div className="col-md-2 offset-md-4">
           <h4>Quick Links</h4>
-          <ul className="list-unstyled">
+          <ul>
             <li>
-              <BsFillPatchQuestionFill style={{ fontSize: "22px" }} />
-
               <Link to={"/faq"}>FAQs</Link>
             </li>{" "}
             <li>
-              <FaPhoneAlt style={{ fontSize: "22px" }} />
-
               <Link to={"/contact"}>Contact us</Link>
             </li>{" "}
             <li>
-              <GiArchiveRegister style={{ fontSize: "22px" }} />
-
               <Link to={"/registration"}>Register</Link>
             </li>{" "}
           </ul>
@@ -81,13 +72,6 @@ export const Footer = () => {
             </Link>
           </li>
         </ul>
-      </center>
-      <br />
-      <center>
-        <p>
-          © Copyright 2024 <Link to={"/"}>Hexxondiv Global Services</Link>. All
-          Rights Reserved
-        </p>
       </center>
     </footer>
   );

@@ -15,7 +15,7 @@ main {
   width: 40%;
   left: 0;
   background: #dc727c;
-  z-index: 230;
+
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
@@ -181,7 +181,6 @@ label {
   border: solid 1px #be3520;
   background: #be3520;
   border-radius: 50%;
-  z-index: 231;
   // position: fixed;
   // z-index: 230;
 }
