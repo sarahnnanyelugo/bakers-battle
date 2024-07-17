@@ -255,14 +255,14 @@ export const Home = () => {
           </div>
           <div className="col">
             <div className="sponsors">
-              <br />
+              {" "}
               <center>
                 {" "}
                 <img
                   className="img  offset-md-"
                   src={Sponsor4}
                   alt="Scholar"
-                  width="90%"
+                  width="80%"
                 />
               </center>
             </div>

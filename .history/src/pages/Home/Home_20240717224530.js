@@ -8,7 +8,7 @@ import Flier from "../../assets/images/flier1.jpeg";
 import Sponsor1 from "../../assets/images/sponsor1.jpeg";
 import Sponsor2 from "../../assets/images/sponsor2.png";
 import Sponsor3 from "../../assets/images/sponsor3.png";
-import Sponsor4 from "../../assets/images/tech-hub-logo.jpeg";
+import Sponsor4 from "../../assets/images/tech-hub.png";
 import Sponsor5 from "../../assets/images/sponsor5.png";
 import Sponsor6 from "../../assets/images/sponsor6.png";
 
@@ -255,14 +255,14 @@ export const Home = () => {
           </div>
           <div className="col">
             <div className="sponsors">
-              <br />
+              {" "}
               <center>
                 {" "}
                 <img
                   className="img  offset-md-"
                   src={Sponsor4}
                   alt="Scholar"
-                  width="90%"
+                  width="100%"
                 />
               </center>
             </div>

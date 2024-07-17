@@ -255,7 +255,7 @@ export const Home = () => {
           </div>
           <div className="col">
             <div className="sponsors">
-              <br />
+              {" "}
               <center>
                 {" "}
                 <img
