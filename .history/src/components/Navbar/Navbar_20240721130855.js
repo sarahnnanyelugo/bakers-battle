@@ -7,7 +7,6 @@ import { Title } from "../Title";
 export const Navbar = () => {
   const prevUrlRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showNav, setShowNav] = useState(true);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -27,32 +26,8 @@ export const Navbar = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-  const location = useLocation();
-  let currentUrl;
-  useEffect(() => {
-    currentUrl = location.pathname;
-  });
-
-  useEffect(() => {
-    if (prevUrlRef.current !== currentUrl) {
-      prevUrlRef.current = currentUrl;
-      console.log(currentUrl);
-      setTimeout(() => {
-        switch (currentUrl) {
-          case "/dashboard":
-            // case "/sign-up":
-            setShowNav(false);
-            break;
-          default:
-            setShowNav(true);
-            break;
-        }
-        console.log(currentUrl, showNav);
-      }, 10);
-    }
-  });
   return (
-    <div className={`  ${showNav ? "" : "hide"}`}>
+    <>
       <div style={{ height: "30px", background: "#DC727C" }}>
         <Link to={"/dashboard"}>Admin</Link>
       </div>
@@ -134,6 +109,6 @@ export const Navbar = () => {
           </div>
         </aside>
       </div>
-    </div>
+    </>
   );
 };

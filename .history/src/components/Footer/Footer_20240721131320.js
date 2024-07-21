@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import "./footer.scss";
 import Logo from "../../assets/images/logo2.png";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoYoutube } from "react-icons/io";
@@ -25,8 +25,8 @@ export const Footer = () => {
       console.log(currentUrl);
       setTimeout(() => {
         switch (currentUrl) {
-          case "/dashboard":
-            // case "/sign-up":
+          case "/login":
+          case "/sign-up":
             setShowNav(false);
             break;
           default:

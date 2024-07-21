@@ -52,7 +52,7 @@ export const Navbar = () => {
     }
   });
   return (
-    <div className={`  ${showNav ? "" : "hide"}`}>
+    <>
       <div style={{ height: "30px", background: "#DC727C" }}>
         <Link to={"/dashboard"}>Admin</Link>
       </div>
@@ -134,6 +134,6 @@ export const Navbar = () => {
           </div>
         </aside>
       </div>
-    </div>
+    </>
   );
 };

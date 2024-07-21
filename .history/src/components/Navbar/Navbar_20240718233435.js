@@ -1,13 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.scss";
 import Logo from "../../assets/images/logo2.png";
 import Flier from "../../assets/images/flier2.jpeg";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Title } from "../Title";
 export const Navbar = () => {
-  const prevUrlRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showNav, setShowNav] = useState(true);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -27,35 +25,9 @@ export const Navbar = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-  const location = useLocation();
-  let currentUrl;
-  useEffect(() => {
-    currentUrl = location.pathname;
-  });
-
-  useEffect(() => {
-    if (prevUrlRef.current !== currentUrl) {
-      prevUrlRef.current = currentUrl;
-      console.log(currentUrl);
-      setTimeout(() => {
-        switch (currentUrl) {
-          case "/dashboard":
-            // case "/sign-up":
-            setShowNav(false);
-            break;
-          default:
-            setShowNav(true);
-            break;
-        }
-        console.log(currentUrl, showNav);
-      }, 10);
-    }
-  });
   return (
-    <div className={`  ${showNav ? "" : "hide"}`}>
-      <div style={{ height: "30px", background: "#DC727C" }}>
-        <Link to={"/dashboard"}>Admin</Link>
-      </div>
+    <>
+      <div style={{ height: "30px", background: "#DC727C" }} />
       <div style={{ height: "10px", background: "#DEF2FA" }} />
 
       <div className="app-nav d-flex">
@@ -134,6 +106,6 @@ export const Navbar = () => {
           </div>
         </aside>
       </div>
-    </div>
+    </>
   );
 };

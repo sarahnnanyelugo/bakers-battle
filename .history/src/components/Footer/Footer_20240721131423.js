@@ -25,8 +25,8 @@ export const Footer = () => {
       console.log(currentUrl);
       setTimeout(() => {
         switch (currentUrl) {
-          case "/dashboard":
-            // case "/sign-up":
+          case "/login":
+          case "/sign-up":
             setShowNav(false);
             break;
           default:

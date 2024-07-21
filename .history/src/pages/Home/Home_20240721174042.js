@@ -251,11 +251,8 @@ export const Home = () => {
               </center>
             </div>
           </div>
-          <Link
-            className="col"
-            target="_blank"
-            to={"https://www.hexxondiv.com"}
-          >
+          <Link className="col"  target="_blank"
+            to={"https://www.hexxondiv.com"}>
             <div className="sponsors">
               <center>
                 {" "}
@@ -267,7 +264,7 @@ export const Home = () => {
                 />
               </center>
             </div>
-          </Link>{" "}
+          </div>{" "}
           <div className="col">
             <div className="sponsors">
               {" "}

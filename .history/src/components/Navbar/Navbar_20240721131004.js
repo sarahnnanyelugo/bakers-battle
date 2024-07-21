@@ -7,7 +7,6 @@ import { Title } from "../Title";
 export const Navbar = () => {
   const prevUrlRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showNav, setShowNav] = useState(true);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -52,7 +51,7 @@ export const Navbar = () => {
     }
   });
   return (
-    <div className={`  ${showNav ? "" : "hide"}`}>
+    <>
       <div style={{ height: "30px", background: "#DC727C" }}>
         <Link to={"/dashboard"}>Admin</Link>
       </div>
@@ -134,6 +133,6 @@ export const Navbar = () => {
           </div>
         </aside>
       </div>
-    </div>
+    </>
   );
 };
