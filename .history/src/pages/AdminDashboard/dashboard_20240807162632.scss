@@ -1,0 +1,54 @@
+.dash-container {
+  padding: 10px;
+  border-left: solid 1px #e7e7e7;
+}
+.dash-nav {
+  height: 700px;
+  background: red;
+}
+.dash-div {
+  text-align: left;
+  background: #f5f6ff;
+  padding: 30px 25px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  height: 700px;
+  margin-top: -120px;
+  .stats {
+    border: solid 1px #e7e7e7;
+    height: 140px;
+    border-radius: 20px;
+    padding: 20px;
+
+    background: #fff;
+  }
+}
+.admin-top {
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background: #4c6ef8;
+  height: 250px;
+  padding: 40px;
+  input {
+    border-radius: 10px;
+    width: 150%;
+    padding: 7px 10px;
+    border: none;
+    font-family: montR;
+  }
+}
+.reg-chart {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  height: 500px;
+  margin-top: 30px;
+}
+.app-table {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  height: 500px;
+  margin-top: 30px;
+  border: solid 1px red;
+}
