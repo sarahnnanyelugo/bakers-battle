@@ -24,12 +24,9 @@ const AppTable = ({ data, initialDisplayCount = 4 }) => {
       <div className="d-flex tabled-data">
         {" "}
         <h5 style={{ flexGrow: 1 }}>Newly Registered Contestants</h5>
-        <div>
-          {" "}
-          <button onClick={handleToggleDisplay} className="dashboard-btn">
-            {isShowingAll ? "See less" : "See all"}
-          </button>
-        </div>
+        <button onClick={handleToggleDisplay} className="dashboard-btn">
+          {isShowingAll ? "See less" : "See all"}
+        </button>
       </div>
 
       <Table striped bordered hover className="school-table" responsive>
@@ -108,12 +105,9 @@ const AppTable = ({ data, initialDisplayCount = 4 }) => {
       <div className="d-flex">
         <p style={{ flexGrow: 1 }}>Page 1 of 10</p>
         <div className="d-flex">
-          <div>
-            {" "}
-            <button className="dashboard-btn" style={{ marginRight: "10px" }}>
-              Previous
-            </button>
-          </div>
+          <button className="dashboard-btn" style={{ marginRight: "10px" }}>
+            Previous
+          </button>
           <div>
             {" "}
             <button className="dashboard-btn">Next</button>

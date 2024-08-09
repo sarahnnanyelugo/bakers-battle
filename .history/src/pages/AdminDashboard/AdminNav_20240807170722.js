@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/images/logo2.png";
 import { IoStatsChart } from "react-icons/io5";
-import { MdHowToVote } from "react-icons/md";
+
 export const AdminNav = () => {
   return (
     <div className="admin-nav">
@@ -17,9 +17,9 @@ export const AdminNav = () => {
       </div>
       <ul className="list-unstyled col-md-12 ">
         <li>
-          <NavLink to={"./admin-dashboard"} activeClassName="active">
+          <NavLink to={"./my-schools"} activeClassName="active">
             <span>
-              <IoStatsChart />
+              <LuSchool />
             </span>
             Dashboard
           </NavLink>
@@ -27,9 +27,10 @@ export const AdminNav = () => {
         <li>
           <NavLink to={"./sch-sub"} activeClassName="active">
             <span>
-              <MdHowToVote />
+              {" "}
+              <MdOutlinePayments />
             </span>
-            Voting
+            Subscription
           </NavLink>
         </li>{" "}
       </ul>

@@ -17,7 +17,7 @@ export const AdminNav = () => {
       </div>
       <ul className="list-unstyled col-md-12 ">
         <li>
-          <NavLink to={"./admin-dashboard"} activeClassName="active">
+          <NavLink to={"./my-schools"} activeClassName="active">
             <span>
               <IoStatsChart />
             </span>
@@ -27,10 +27,9 @@ export const AdminNav = () => {
         <li>
           <NavLink to={"./sch-sub"} activeClassName="active">
             <span>
-              <MdHowToVote />
-            </span>
-            Voting
-          </NavLink>
+              dHowToVote /><span/>
+                        Voting
+            </NavLink>
         </li>{" "}
       </ul>
     </div>

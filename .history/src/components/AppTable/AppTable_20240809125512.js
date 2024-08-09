@@ -24,12 +24,9 @@ const AppTable = ({ data, initialDisplayCount = 4 }) => {
       <div className="d-flex tabled-data">
         {" "}
         <h5 style={{ flexGrow: 1 }}>Newly Registered Contestants</h5>
-        <div>
-          {" "}
-          <button onClick={handleToggleDisplay} className="dashboard-btn">
-            {isShowingAll ? "See less" : "See all"}
-          </button>
-        </div>
+        <button onClick={handleToggleDisplay} className="dashboard-btn">
+          {isShowingAll ? "See less" : "See all"}
+        </button>
       </div>
 
       <Table striped bordered hover className="school-table" responsive>

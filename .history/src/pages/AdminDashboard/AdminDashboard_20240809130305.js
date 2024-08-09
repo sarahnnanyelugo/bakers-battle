@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import "./dashboard.scss";
 import { schools } from "../../Data/schoolsData";
@@ -6,8 +6,6 @@ import CountUp from "react-countup";
 import { ContestChart } from "../../components/ContestChart/ContestChart";
 import AppTable from "../../components/AppTable/AppTable";
 import { AdminNav } from "./AdminNav";
-import { RecentActivity } from "../../components/RecentActivity/RecentActivity";
-import { recentActs } from "../../Data/recentActivities";
 const customData = [50, 100, 80, 90, 70, 80];
 const customLabels = [
   "Facebook",
@@ -20,10 +18,6 @@ const customLabels = [
   ,
 ];
 export default function AdminDashboard() {
-  const [state, setState] = useState({
-    query: "",
-    list: recentActs,
-  });
   return (
     <>
       <div className="col-md-12 dash-container">

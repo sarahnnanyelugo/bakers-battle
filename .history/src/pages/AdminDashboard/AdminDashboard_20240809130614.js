@@ -6,8 +6,6 @@ import CountUp from "react-countup";
 import { ContestChart } from "../../components/ContestChart/ContestChart";
 import AppTable from "../../components/AppTable/AppTable";
 import { AdminNav } from "./AdminNav";
-import { RecentActivity } from "../../components/RecentActivity/RecentActivity";
-import { recentActs } from "../../Data/recentActivities";
 const customData = [50, 100, 80, 90, 70, 80];
 const customLabels = [
   "Facebook",
