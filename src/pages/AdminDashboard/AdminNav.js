@@ -25,7 +25,7 @@ export const AdminNav = () => {
           </NavLink>
         </li>{" "}
         <li>
-          <NavLink to={"./sch-sub"} activeClassName="active">
+          <NavLink to={"./voting"} activeClassName="active">
             <span>
               <MdHowToVote />
             </span>

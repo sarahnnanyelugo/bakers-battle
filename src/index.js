@@ -4,11 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { VoteProvider } from "./components/VoteContexts";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <App />
+    <VoteProvider>
+      <App />
+    </VoteProvider>
+    ,
   </BrowserRouter>
 );
 

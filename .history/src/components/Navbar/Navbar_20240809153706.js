@@ -41,7 +41,7 @@ export const Navbar = () => {
       setTimeout(() => {
         switch (currentUrl) {
           case "/dashboard-layout/admin-dashboard":
-          case "/dashboard-layout/voting":
+            // case "/sign-up":
             setShowNav(false);
             break;
           default:

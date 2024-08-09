@@ -45,7 +45,7 @@ export function ContestChart({ labels, dataset, drillPage }) {
     labels,
     datasets: [
       {
-        label: "votes",
+        label: "school",
         data: dataset,
         backgroundColor: "rgb(30,61,115)",
         borderRadius: 10,
