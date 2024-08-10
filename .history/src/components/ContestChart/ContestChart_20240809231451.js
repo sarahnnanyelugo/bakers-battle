@@ -75,5 +75,5 @@ export function ContestChart({ labels, dataset, drillPage }) {
     ],
   };
 
-  return <Bar options={options(drillPage)} data={data} className="col-md-5" />;
+  return <Bar options={options(drillPage)} data={data} />;
 }

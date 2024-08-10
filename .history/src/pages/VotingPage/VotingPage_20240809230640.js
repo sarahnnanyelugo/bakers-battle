@@ -17,9 +17,9 @@ const customLabels = [
 ];
 const originalVotes = [50, 100, 80, 90, 70, 80];
 
-function VotingModal() {
+function VotingPage() {
   const [lgShow, setLgShow] = useState(false);
-  const { votes, incrementVote, resetVotes, originalLabels } = useVotes();
+  const { votes, incrementVote, resetVotes } = useVotes(); // Use the votes and increment
   const sortedData = [...votes]
     .map((vote, index) => ({ vote, label: customLabels[index] }))
     .sort((a, b) => b.vote - a.vote);
@@ -80,4 +80,4 @@ function VotingModal() {
   );
 }
 
-export default VotingModal;
+export default VotingPage;

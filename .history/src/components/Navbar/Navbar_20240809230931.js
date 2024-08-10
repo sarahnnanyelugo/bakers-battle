@@ -42,7 +42,6 @@ export const Navbar = () => {
         switch (currentUrl) {
           case "/dashboard-layout/admin-dashboard":
           case "/dashboard-layout/voting":
-          case "/voting-page":
             setShowNav(false);
             break;
           default:
@@ -57,7 +56,7 @@ export const Navbar = () => {
     <div className={`  ${showNav ? "" : "hide"}`}>
       <div style={{ height: "30px", background: "#DC727C" }}>
         <Link to={"dashboard-layout/admin-dashboard"}>Admin</Link>
-        <Link to={"/voting-page"}>Vote</Link>
+        <Link to={"dashboard-layout/voting-page"}>Vote</Link>
         <VotingModal />
       </div>
       <div style={{ height: "10px", background: "#DEF2FA" }} />

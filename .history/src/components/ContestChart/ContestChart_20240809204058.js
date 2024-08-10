@@ -70,10 +70,10 @@ export function ContestChart({ labels, dataset, drillPage }) {
         data: dataset,
         backgroundColor: "rgb(30,61,115)",
         borderRadius: 10,
-        // aspectRatio: 1,
+        aspectRatio: 1,
       },
     ],
   };
 
-  return <Bar options={options(drillPage)} data={data} className="col-md-5" />;
+  return <Bar options={options(drillPage)} data={data} className="col-12" />;
 }

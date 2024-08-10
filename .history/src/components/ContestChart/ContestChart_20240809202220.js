@@ -5,22 +5,14 @@ import {
   LinearScale,
   BarElement,
   Tooltip,
-  Title,
-  Legend,
+  ChartDataLabels,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-  Title,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 export const options = (drillPage, data) => ({
-  // indexAxis: "y",
+  indexAxis: data.align,
   datalabels: {
     display: true,
     color: "#000", // Color of the labels
@@ -70,10 +62,10 @@ export function ContestChart({ labels, dataset, drillPage }) {
         data: dataset,
         backgroundColor: "rgb(30,61,115)",
         borderRadius: 10,
-        // aspectRatio: 1,
+        aspectRatio: 1,
       },
     ],
   };
 
-  return <Bar options={options(drillPage)} data={data} className="col-md-5" />;
+  return <Bar options={options(drillPage)} data={data} className="col-12" />;
 }

@@ -19,7 +19,7 @@ const originalVotes = [50, 100, 80, 90, 70, 80];
 
 function VotingModal() {
   const [lgShow, setLgShow] = useState(false);
-  const { votes, incrementVote, resetVotes, originalLabels } = useVotes();
+  const { votes, incrementVote, resetVotes } = useVotes(); // Use the votes and increment
   const sortedData = [...votes]
     .map((vote, index) => ({ vote, label: customLabels[index] }))
     .sort((a, b) => b.vote - a.vote);
@@ -50,7 +50,7 @@ function VotingModal() {
         <Modal.Body>
           <div className="d-md-flex col-md-12">
             {" "}
-            {/* <div className="col-md-5"></div> */}
+            <div className="col-md-5"></div>
             <div className="chart-container col-md-7">
               {" "}
               <ContestChart labels={sortedLabels} dataset={sortedVotes} />

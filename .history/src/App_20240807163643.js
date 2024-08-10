@@ -16,7 +16,6 @@ import { FaArrowUpLong } from "react-icons/fa6";
 import { Dashboard } from "@material-ui/icons";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import { DashboardLayout } from "./pages/DashboardLayout";
-import VotingPage from "./pages/VotingPage/VotingPage";
 
 function App() {
   return (
@@ -33,7 +32,6 @@ function App() {
         <Route path="/about" element={<About />} />{" "}
         <Route path="/payment" element={<PaymentPage />} />{" "}
         <Route path="dashboard" element={<AdminDashboard />} />{" "}
-        <Route path="voting-page" element={<VotingPage />} />{" "}
         <Route path="dashboard-layout/*" element={<DashboardLayout />} />{" "}
       </Routes>
       <Footer />
