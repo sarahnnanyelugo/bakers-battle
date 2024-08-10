@@ -160,8 +160,8 @@ export const Navbar = () => {
                   </Link>
                 </li>
                 <li onClick={closeMenu}>
-                  <Link to={"/voting-page"} class="aside-anchor">
-                    VOTE
+                  <Link to={"/registration"} class="aside-anchor">
+                    REGISTER
                   </Link>
                 </li>
               </ul>

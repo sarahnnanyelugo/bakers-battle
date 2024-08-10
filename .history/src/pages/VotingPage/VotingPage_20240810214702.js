@@ -66,7 +66,7 @@ function VotingPage() {
       </ul>
       <div
         className="col-md-10 offset-md-1 d-md-flex"
-        style={{ marginTop: "0px" }}
+        style={{ marginTop: "40px" }}
       >
         <div className="col-md-4 contestants">
           <div className="col-md-12">

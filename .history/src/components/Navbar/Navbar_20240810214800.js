@@ -55,36 +55,13 @@ export const Navbar = () => {
   });
   return (
     <div className={`  ${showNav ? "" : "hide"}`}>
-      <div style={{ height: "30px", background: "#DC727C" }} className="d-flex">
-        <div style={{ flexGrow: 1 }} />
-        <ul className="list-unstyled list-inline flex-end">
-          <li className="list-inline-item">
-            {" "}
-            <Link
-              to={"dashboard-layout/admin-dashboard"}
-              style={{
-                color: "#fff",
-                textDecoration: "none",
-                fontFamily: "soraB",
-              }}
-            >
-              Admin
-            </Link>
-          </li>
-          <li className="list-inline-item">
-            {" "}
-            <Link
-              to={"/voting-page"}
-              style={{
-                color: "#fff",
-                textDecoration: "none",
-                fontFamily: "soraB",
-              }}
-            >
-              Vote
-            </Link>
-          </li>
+      <div style={{ height: "30px", background: "#DC727C" }}>
+        <ul>
+          <li></li>
         </ul>
+        <Link to={"dashboard-layout/admin-dashboard"}>Admin</Link>
+        <Link to={"/voting-page"}>Vote</Link>
+        <Link to={"/confirmed-contestants"}>confirm</Link>
       </div>
       <div style={{ height: "10px", background: "#DEF2FA" }} />
 
@@ -157,11 +134,6 @@ export const Navbar = () => {
                 <li onClick={closeMenu}>
                   <Link to={"/registration"} class="aside-anchor">
                     REGISTER
-                  </Link>
-                </li>
-                <li onClick={closeMenu}>
-                  <Link to={"/voting-page"} class="aside-anchor">
-                    VOTE
                   </Link>
                 </li>
               </ul>

@@ -44,7 +44,7 @@ function VotingPage() {
       <center>
         {" "}
         <Link to={"/"}>
-          <img className="col-md-1" src={Logo} alt="Scholar" />
+          <img className="col-md-2" src={Logo} alt="Scholar" />
         </Link>
       </center>
       <center>
@@ -66,7 +66,7 @@ function VotingPage() {
       </ul>
       <div
         className="col-md-10 offset-md-1 d-md-flex"
-        style={{ marginTop: "0px" }}
+        style={{ marginTop: "80px" }}
       >
         <div className="col-md-4 contestants">
           <div className="col-md-12">

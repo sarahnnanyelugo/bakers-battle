@@ -60,29 +60,11 @@ export const Navbar = () => {
         <ul className="list-unstyled list-inline flex-end">
           <li className="list-inline-item">
             {" "}
-            <Link
-              to={"dashboard-layout/admin-dashboard"}
-              style={{
-                color: "#fff",
-                textDecoration: "none",
-                fontFamily: "soraB",
-              }}
-            >
-              Admin
-            </Link>
+            <Link to={"dashboard-layout/admin-dashboard"}>Admin</Link>
           </li>
           <li className="list-inline-item">
             {" "}
-            <Link
-              to={"/voting-page"}
-              style={{
-                color: "#fff",
-                textDecoration: "none",
-                fontFamily: "soraB",
-              }}
-            >
-              Vote
-            </Link>
+            <Link to={"/voting-page"}>Vote</Link>
           </li>
         </ul>
       </div>
@@ -157,11 +139,6 @@ export const Navbar = () => {
                 <li onClick={closeMenu}>
                   <Link to={"/registration"} class="aside-anchor">
                     REGISTER
-                  </Link>
-                </li>
-                <li onClick={closeMenu}>
-                  <Link to={"/voting-page"} class="aside-anchor">
-                    VOTE
                   </Link>
                 </li>
               </ul>
