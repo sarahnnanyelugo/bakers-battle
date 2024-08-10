@@ -12,61 +12,52 @@ export const Voting = () => {
 
   return (
     <div>
-      <center>
-        {" "}
-        <h1>Live Vote Count</h1>
-      </center>
+      <h3>Live Vote Count</h3>
+      <ul>
+        <li></li>
+        <li></li>
+        <li>Chef Dami's Votes: {votes[2]}</li>
+        <li>Chef Mike's Votes: {votes[3]}</li>
+        <li>Chef Segun's Votes: {votes[4]}</li>
+        <li>Chef Lola's Votes: {votes[5]}</li>
+      </ul>
 
-      <div className="col-md-10 offset-md-1 " style={{ marginTop: "80px" }}>
-        <div className="col-md-12 contestants">
-          <div className="col-md-12">
+      <div
+        className="col-md-10 offset-md-1 d-md-flex"
+        style={{ marginTop: "80px" }}
+      >
+        <div className="col-md-4 contestants">
+          <div className="col-md-10">
             <div className="d-flex">
               {" "}
               <img src={Chi} />
-              <h3>
-                Chef Chi's Votes: <span>{votes[0]}</span>
-              </h3>
+              <h2>Chef Chi's Votes: {votes[0]}</h2>
             </div>
             <div className="d-flex">
               {" "}
               <img src={Hilda} />
-              <h3>
-                {" "}
-                Chef Hilda's Votes: <span>{votes[1]}</span>
-              </h3>
+              <h2> Chef Hilda's Votes: {votes[1]}</h2>
             </div>{" "}
             <div className="d-flex">
               {" "}
               <img src={Dami} />
-              <h3>
-                Chef Dami's Votes:<span> {votes[2]}</span>
-              </h3>
             </div>
             <div className="d-flex">
               <img src={Mike} />
-              <h3>
-                Chef Mike's Votes: <span>{votes[3]}</span>
-              </h3>
             </div>{" "}
             <div className="d-flex">
               {" "}
               <img src={Segun} />
-              <h3>
-                Chef Segun's Votes:<span> {votes[4]}</span>
-              </h3>
             </div>
             <div className="d-flex">
               {" "}
               <img src={Lola} />
-              <h3>
-                Chef Lola's Votes: <span>{votes[5]}</span>
-              </h3>
             </div>
           </div>
         </div>
-        {/* <div className="chart-container col-md-8" style={{ marginTop: 0 }}>
-          <ContestChart labels={sortedLabels} dataset={sortedVotes} />
-        </div> */}
+        <div className="chart-container col-md-8" style={{ marginTop: 0 }}>
+          {/* <ContestChart labels={sortedLabels} dataset={sortedVotes} /> */}
+        </div>
       </div>
     </div>
   );

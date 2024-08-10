@@ -23,44 +23,31 @@ export const Voting = () => {
             <div className="d-flex">
               {" "}
               <img src={Chi} />
-              <h3>
-                Chef Chi's Votes: <span>{votes[0]}</span>
-              </h3>
+              <h2>Chef Chi's Votes: {votes[0]}</h2>
             </div>
             <div className="d-flex">
               {" "}
               <img src={Hilda} />
-              <h3>
-                {" "}
-                Chef Hilda's Votes: <span>{votes[1]}</span>
-              </h3>
+              <h2> Chef Hilda's Votes: {votes[1]}</h2>
             </div>{" "}
             <div className="d-flex">
               {" "}
               <img src={Dami} />
-              <h3>
-                Chef Dami's Votes:<span> {votes[2]}</span>
-              </h3>
+              <h2>Chef Dami's Votes: {votes[2]}</h2>
             </div>
             <div className="d-flex">
               <img src={Mike} />
-              <h3>
-                Chef Mike's Votes: <span>{votes[3]}</span>
-              </h3>
+              <h2>Chef Mike's Votes: {votes[3]}</h2>
             </div>{" "}
             <div className="d-flex">
               {" "}
               <img src={Segun} />
-              <h3>
-                Chef Segun's Votes:<span> {votes[4]}</span>
-              </h3>
+              <h2>Chef Segun's Votes: {votes[4]}</h2>
             </div>
             <div className="d-flex">
               {" "}
               <img src={Lola} />
-              <h3>
-                Chef Lola's Votes: <span>{votes[5]}</span>
-              </h3>
+              <h2>Chef Lola's Votes: {votes[5]}</h2>
             </div>
           </div>
         </div>
