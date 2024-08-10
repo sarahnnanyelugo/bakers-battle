@@ -24,11 +24,8 @@ export const PaymentPage = () => {
               <img src={Switch} width="100%" alt="payment logo" />
             </div>
             <center>
-              <Link
-                to={"/success-page"}
-                style={{ position: "relative", zIndex: 20 }}
-              >
-                <button>Pay Now (5000)</button>
+              <Link to={"/success-page"}>
+                <button>Pay Now (5000dd)</button>
               </Link>
             </center>
           </div>

@@ -58,7 +58,7 @@ export const Navbar = () => {
       <div style={{ height: "30px", background: "#DC727C" }}>
         <Link to={"dashboard-layout/admin-dashboard"}>Admin</Link>
         <Link to={"/voting-page"}>Vote</Link>
-        <Link to={"/confirmed-contestants"}>confirm</Link>
+        <Link to={"/confirmation-page"}>confirm</Link>
       </div>
       <div style={{ height: "10px", background: "#DEF2FA" }} />
 

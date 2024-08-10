@@ -1,7 +1,6 @@
 import React from "react";
 import "./payment-page.scss";
 import Switch from "../../assets/images/switch.png";
-import { Link } from "react-router-dom";
 
 export const PaymentPage = () => {
   return (
@@ -24,12 +23,7 @@ export const PaymentPage = () => {
               <img src={Switch} width="100%" alt="payment logo" />
             </div>
             <center>
-              <Link
-                to={"/success-page"}
-                style={{ position: "relative", zIndex: 20 }}
-              >
-                <button>Pay Now (5000)</button>
-              </Link>
+              <button>Pay Now (5000)</button>
             </center>
           </div>
         </center>

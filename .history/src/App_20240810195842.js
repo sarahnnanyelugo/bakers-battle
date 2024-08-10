@@ -18,7 +18,6 @@ import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import VotingPage from "./pages/VotingPage/VotingPage";
 import { ConfirmedContestants } from "./pages/ConfirmedContestants/ConfirmedContestants";
-import { SuccessPage } from "./pages/SuccessPage/SuccessPage";
 
 function App() {
   return (
@@ -36,7 +35,6 @@ function App() {
         <Route path="/payment" element={<PaymentPage />} />{" "}
         <Route path="dashboard" element={<AdminDashboard />} />{" "}
         <Route path="voting-page" element={<VotingPage />} />{" "}
-        <Route path="success-page" element={<SuccessPage />} />{" "}
         <Route
           path="confirmed-contestants"
           element={<ConfirmedContestants />}
