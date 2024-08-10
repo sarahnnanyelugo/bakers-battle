@@ -12,8 +12,6 @@ import Logo from "../../assets/images/logo2.png";
 import { useVotes } from "../../components/VoteContexts";
 import "./voting-page.scss";
 import { Link } from "react-router-dom";
-import { PaymentPage } from "../PaymentPage/PaymentPage";
-import { RechargePage } from "../../components/RechargePage/RechargePage";
 // const customData = [50, 100, 80, 90, 70, 80];
 const customLabels = [
   "Chef Chi",
@@ -166,10 +164,10 @@ function VotingPage() {
           </div>
         </div>
         <div className="chart-container col-md-8" style={{ marginTop: 0 }}>
-          <div className="offset-md-9 ">
-            <RechargePage />
-          </div>
-
+          <Link to={"/wallet"}>
+            {" "}
+            <button className="offset-md-9 ">Recharge Wallet</button>
+          </Link>
           <ContestChart labels={sortedLabels} dataset={sortedVotes} />
         </div>
       </div>

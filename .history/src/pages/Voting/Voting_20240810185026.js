@@ -7,30 +7,9 @@ import Lola from "../../assets/images/lola.jpeg";
 import Chi from "../../assets/images/chi.jpeg";
 import Dami from "../../assets/images/dami.jpeg";
 import Logo from "../../assets/images/logo2.png";
-import { ContestChart } from "../../components/ContestChart/ContestChart";
-const customLabels = [
-  "Chef Chi",
-  "Chef Hilda",
-  "Chef Dami",
-  "Chef Mike",
-  "Chef Segun",
-  "Chef Lola",
-];
-const originalVotes = [50, 100, 80, 90, 70, 80];
-
 export const Voting = () => {
-  // const { votes } = useVotes(); // Get the votes from context
-  const { votes, incrementVote, resetVotes } = useVotes(); // Use the votes and increment
+  const { votes } = useVotes(); // Get the votes from context
 
-  const sortedData = [...votes]
-    .map((vote, index) => ({ vote, label: customLabels[index] }))
-    .sort((a, b) => b.vote - a.vote);
-
-  const sortedVotes = sortedData.map((item) => item.vote);
-  const sortedLabels = sortedData.map((item) => item.label);
-  const handleRestoreDefault = () => {
-    resetVotes(); // Call the reset function from the context to restore default votes
-  };
   return (
     <div>
       <center>
@@ -38,11 +17,8 @@ export const Voting = () => {
         <h1>Live Vote Count</h1>
       </center>
 
-      <div
-        className="col-md-12 offset-md- d-md-flex "
-        style={{ marginTop: "80px" }}
-      >
-        <div className="col-md-4 contestants">
+      <div className="col-md-10 offset-md-1 " style={{ marginTop: "80px" }}>
+        <div className="col-md-5 contestants">
           <div className="col-md-12">
             <div className="d-flex">
               {" "}
@@ -88,10 +64,7 @@ export const Voting = () => {
             </div>
           </div>
         </div>
-        <div
-          className="chart-container col-md-8"
-          style={{ marginTop: "240px" }}
-        >
+        <div className="chart-container col-md-7" style={{ marginTop: 0 }}>
           <ContestChart labels={sortedLabels} dataset={sortedVotes} />
         </div>
       </div>

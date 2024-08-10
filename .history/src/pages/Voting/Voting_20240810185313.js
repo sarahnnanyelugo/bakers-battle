@@ -38,11 +38,8 @@ export const Voting = () => {
         <h1>Live Vote Count</h1>
       </center>
 
-      <div
-        className="col-md-12 offset-md- d-md-flex "
-        style={{ marginTop: "80px" }}
-      >
-        <div className="col-md-4 contestants">
+      <div className="col-md-10 offset-md-1 " style={{ marginTop: "80px" }}>
+        <div className="col-md-5 contestants">
           <div className="col-md-12">
             <div className="d-flex">
               {" "}
@@ -88,10 +85,7 @@ export const Voting = () => {
             </div>
           </div>
         </div>
-        <div
-          className="chart-container col-md-8"
-          style={{ marginTop: "240px" }}
-        >
+        <div className="chart-container col-md-7" style={{ marginTop: 0 }}>
           <ContestChart labels={sortedLabels} dataset={sortedVotes} />
         </div>
       </div>

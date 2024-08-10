@@ -7,7 +7,6 @@ import Lola from "../../assets/images/lola.jpeg";
 import Chi from "../../assets/images/chi.jpeg";
 import Dami from "../../assets/images/dami.jpeg";
 import Logo from "../../assets/images/logo2.png";
-import { ContestChart } from "../../components/ContestChart/ContestChart";
 const customLabels = [
   "Chef Chi",
   "Chef Hilda",
@@ -38,11 +37,8 @@ export const Voting = () => {
         <h1>Live Vote Count</h1>
       </center>
 
-      <div
-        className="col-md-12 offset-md- d-md-flex "
-        style={{ marginTop: "80px" }}
-      >
-        <div className="col-md-4 contestants">
+      <div className="col-md-10 offset-md-1 " style={{ marginTop: "80px" }}>
+        <div className="col-md-5 contestants">
           <div className="col-md-12">
             <div className="d-flex">
               {" "}
@@ -88,10 +84,7 @@ export const Voting = () => {
             </div>
           </div>
         </div>
-        <div
-          className="chart-container col-md-8"
-          style={{ marginTop: "240px" }}
-        >
+        <div className="chart-container col-md-7" style={{ marginTop: 0 }}>
           <ContestChart labels={sortedLabels} dataset={sortedVotes} />
         </div>
       </div>

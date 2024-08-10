@@ -90,7 +90,7 @@ export const Voting = () => {
         </div>
         <div
           className="chart-container col-md-8"
-          style={{ marginTop: "240px" }}
+          style={{ marginTop: "140px" }}
         >
           <ContestChart labels={sortedLabels} dataset={sortedVotes} />
         </div>

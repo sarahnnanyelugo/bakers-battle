@@ -166,10 +166,12 @@ function VotingPage() {
           </div>
         </div>
         <div className="chart-container col-md-8" style={{ marginTop: 0 }}>
-          <div className="offset-md-9 ">
-            <RechargePage />
-          </div>
-
+          <Link to={"/wallet"}>
+            {" "}
+            <div className="offset-md-9 ">
+              <RechargePage />
+            </div>
+          </Link>
           <ContestChart labels={sortedLabels} dataset={sortedVotes} />
         </div>
       </div>
