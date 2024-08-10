@@ -11,7 +11,6 @@ import { recentActs } from "../../Data/recentActivities";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { FaBell } from "react-icons/fa";
-import { IoMail } from "react-icons/io5";
 
 const customData = [50, 100, 80, 90, 70, 80];
 const customLabels = [
@@ -35,20 +34,18 @@ export default function AdminDashboard() {
             {" "}
             <input placeholder="search here" style={{ flexGrow: 1 }} />
           </div>
-          <div className="offset-md-9">
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<FaBell style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
-              <h6>No notifications at the moment</h6>
+          <div>
+            <DropdownButton id="dropdown-basic-button" title={<FaBell />}>
+              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </DropdownButton>
           </div>{" "}
           <div>
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<IoMail style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
-              <h6>No messages at the moment</h6>
+            <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </DropdownButton>
           </div>
         </div>

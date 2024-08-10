@@ -44,10 +44,7 @@ export default function AdminDashboard() {
             </DropdownButton>
           </div>{" "}
           <div>
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<IoMail style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
+            <DropdownButton id="dropdown-basic-button" title={<IoMail />}>
               <h6>No messages at the moment</h6>
             </DropdownButton>
           </div>

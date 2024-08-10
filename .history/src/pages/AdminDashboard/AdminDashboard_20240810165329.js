@@ -8,11 +8,6 @@ import AppTable from "../../components/AppTable/AppTable";
 import { AdminNav } from "./AdminNav";
 import { RecentActivity } from "../../components/RecentActivity/RecentActivity";
 import { recentActs } from "../../Data/recentActivities";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import { FaBell } from "react-icons/fa";
-import { IoMail } from "react-icons/io5";
-
 const customData = [50, 100, 80, 90, 70, 80];
 const customLabels = [
   "Facebook",
@@ -34,22 +29,6 @@ export default function AdminDashboard() {
           <div>
             {" "}
             <input placeholder="search here" style={{ flexGrow: 1 }} />
-          </div>
-          <div className="offset-md-9">
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<FaBell style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
-              <h6>No notifications at the moment</h6>
-            </DropdownButton>
-          </div>{" "}
-          <div>
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<IoMail style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
-              <h6>No messages at the moment</h6>
-            </DropdownButton>
           </div>
         </div>
         <center>

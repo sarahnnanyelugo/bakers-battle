@@ -38,16 +38,13 @@ export default function AdminDashboard() {
           <div className="offset-md-9">
             <DropdownButton
               id="dropdown-basic-button"
-              title={<FaBell style={{ color: "#1E3D73", fontSize: "20px" }} />}
+              title={<FaBell style={{ color: "black" }} />}
             >
               <h6>No notifications at the moment</h6>
             </DropdownButton>
           </div>{" "}
           <div>
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<IoMail style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
+            <DropdownButton id="dropdown-basic-button" title={<IoMail />}>
               <h6>No messages at the moment</h6>
             </DropdownButton>
           </div>

@@ -36,19 +36,17 @@ export default function AdminDashboard() {
             <input placeholder="search here" style={{ flexGrow: 1 }} />
           </div>
           <div className="offset-md-9">
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<FaBell style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
-              <h6>No notifications at the moment</h6>
+            <DropdownButton id="dropdown-basic-button" title={<FaBell />}>
+              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </DropdownButton>
           </div>{" "}
           <div>
-            <DropdownButton
-              id="dropdown-basic-button"
-              title={<IoMail style={{ color: "#1E3D73", fontSize: "20px" }} />}
-            >
-              <h6>No messages at the moment</h6>
+            <DropdownButton id="dropdown-basic-button" title={<IoMail />}>
+              {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
             </DropdownButton>
           </div>
         </div>
