@@ -257,13 +257,7 @@ export const Home = () => {
               </center>
             </div>
           </Link>{" "}
-          <Link
-            to={
-              "https://www.instagram.com/elixirvictoria?igsh=MXZtbnU2NWc0cGZnNA=="
-            }
-            target="_blank"
-            className="col"
-          >
+          <div className="col">
             <div className="sponsors">
               {" "}
               <center>
@@ -272,11 +266,11 @@ export const Home = () => {
                   className="img  offset-md-"
                   src={Sponsor5}
                   alt="Scholar"
-                  width="80%"
+                  width="100%"
                 />
               </center>
             </div>
-          </Link>{" "}
+          </div>{" "}
           <div className="col">
             <div className="sponsors">
               {" "}

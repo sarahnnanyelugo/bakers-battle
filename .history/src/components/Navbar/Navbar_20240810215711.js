@@ -74,14 +74,14 @@ export const Navbar = () => {
           <li className="list-inline-item">
             {" "}
             <Link
-              to={"/"}
+              to={"/voting-page"}
               style={{
                 color: "#fff",
                 textDecoration: "none",
                 fontFamily: "soraB",
               }}
             >
-              Login
+              Vote
             </Link>
           </li>{" "}
           <li className="list-inline-item">
@@ -94,7 +94,7 @@ export const Navbar = () => {
                 fontFamily: "soraB",
               }}
             >
-              Sign up
+              Vote
             </Link>
           </li>{" "}
           <li className="list-inline-item">

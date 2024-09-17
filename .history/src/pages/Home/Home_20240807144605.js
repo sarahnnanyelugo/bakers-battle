@@ -9,7 +9,7 @@ import Sponsor1 from "../../assets/images/sponsor1.jpeg";
 import Sponsor2 from "../../assets/images/sponsor2.png";
 import Sponsor3 from "../../assets/images/sponsor3.png";
 import Sponsor4 from "../../assets/images/hexxondiv-tech-hub.jpeg";
-import Sponsor5 from "../../assets/images/elixir.PNG";
+import Sponsor5 from "../../assets/images/sponsor5.png";
 import Sponsor6 from "../../assets/images/sponsor6.png";
 
 export const Home = () => {
@@ -24,8 +24,8 @@ export const Home = () => {
           <div className="col-md-11">
             {" "}
             <h3>
-              Welcome to Bakers Battle, where the best bakers in Nigeria compete
-              for the title of Kitchen Disaster’s Best Baker!
+              Welcome to Bakers Battle, where the best amateur bakers in Nigeria
+              compete for the title of Kitchen Disaster’s Best Baker!
             </h3>
             <br />
             <h3>The Contest</h3>
@@ -42,10 +42,9 @@ export const Home = () => {
               There are three categories in the competition and the winners of
               each category will be awarded first, second, and third prizes in
               their category. Any baker who enters two or more categories will
-              be entered in the Kitchen Disaster’s Best Baker Contest and the
-              winner will be chosen based on their overall scores. As an added
-              treat, attendees can sign up to taste the entries in each
-              category.
+              be entered in the Lagos’ Best Baker Contest and the winner will be
+              chosen based on their overall scores. As an added treat, attendees
+              can sign up to taste the entries in each category.
               <Link to={"/about"}>
                 <button class="button-48" role="button">
                   <span class="text">Read more</span>
@@ -55,7 +54,11 @@ export const Home = () => {
             <p>
               Kitchen Disaster's Best Baker Contest was launched as a way to
               gather people from all over the city of Lagos to celebrate the
-              diverse and exacting bakers who call Lagos their home.
+              diverse and exacting bakers who call Lagos their home. Since there
+              is no county fair for Cook County, amateur bakers in the city
+              haven't had a chance to compete with and learn from each other on
+              a local stage ... until now. Come see why we think Kitchen
+              Disaster's bakers are the best!
             </p>{" "}
             <p>
               For rules, view
@@ -257,13 +260,7 @@ export const Home = () => {
               </center>
             </div>
           </Link>{" "}
-          <Link
-            to={
-              "https://www.instagram.com/elixirvictoria?igsh=MXZtbnU2NWc0cGZnNA=="
-            }
-            target="_blank"
-            className="col"
-          >
+          <div className="col">
             <div className="sponsors">
               {" "}
               <center>
@@ -272,11 +269,11 @@ export const Home = () => {
                   className="img  offset-md-"
                   src={Sponsor5}
                   alt="Scholar"
-                  width="80%"
+                  width="100%"
                 />
               </center>
             </div>
-          </Link>{" "}
+          </div>{" "}
           <div className="col">
             <div className="sponsors">
               {" "}

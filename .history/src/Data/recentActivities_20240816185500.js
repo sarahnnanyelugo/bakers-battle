@@ -85,13 +85,4 @@ export const recentActs = [
 
     id: 9,
   },
-  {
-    alphabet: "S",
-    time: "3 hrs ago",
-    schoolName: "Your video on IG just gained 150K views",
-    schoolDetail: "British College Enugu subscription has expired",
-    Icon: Instagram,
-
-    id: 10,
-  },
 ];

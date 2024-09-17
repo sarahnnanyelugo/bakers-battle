@@ -9,7 +9,7 @@ import Sponsor1 from "../../assets/images/sponsor1.jpeg";
 import Sponsor2 from "../../assets/images/sponsor2.png";
 import Sponsor3 from "../../assets/images/sponsor3.png";
 import Sponsor4 from "../../assets/images/hexxondiv-tech-hub.jpeg";
-import Sponsor5 from "../../assets/images/elixir.PNG";
+import Sponsor5 from "../../assets/images/sponsor5.png";
 import Sponsor6 from "../../assets/images/sponsor6.png";
 
 export const Home = () => {
@@ -257,13 +257,7 @@ export const Home = () => {
               </center>
             </div>
           </Link>{" "}
-          <Link
-            to={
-              "https://www.instagram.com/elixirvictoria?igsh=MXZtbnU2NWc0cGZnNA=="
-            }
-            target="_blank"
-            className="col"
-          >
+          <div className="col">
             <div className="sponsors">
               {" "}
               <center>
@@ -272,11 +266,11 @@ export const Home = () => {
                   className="img  offset-md-"
                   src={Sponsor5}
                   alt="Scholar"
-                  width="80%"
+                  width="100%"
                 />
               </center>
             </div>
-          </Link>{" "}
+          </div>{" "}
           <div className="col">
             <div className="sponsors">
               {" "}

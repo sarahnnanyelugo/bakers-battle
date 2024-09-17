@@ -74,32 +74,6 @@ export const Navbar = () => {
           <li className="list-inline-item">
             {" "}
             <Link
-              to={"/"}
-              style={{
-                color: "#fff",
-                textDecoration: "none",
-                fontFamily: "soraB",
-              }}
-            >
-              Login
-            </Link>
-          </li>{" "}
-          <li className="list-inline-item">
-            {" "}
-            <Link
-              to={"/voting-page"}
-              style={{
-                color: "#fff",
-                textDecoration: "none",
-                fontFamily: "soraB",
-              }}
-            >
-              Sign up
-            </Link>
-          </li>{" "}
-          <li className="list-inline-item">
-            {" "}
-            <Link
               to={"/voting-page"}
               style={{
                 color: "#fff",
@@ -187,12 +161,12 @@ export const Navbar = () => {
                 </li>
                 <li onClick={closeMenu}>
                   <Link to={"/voting-page"} class="aside-anchor">
-                    LOGIN
+                    VOTE
                   </Link>
                 </li>{" "}
                 <li onClick={closeMenu}>
                   <Link to={"/voting-page"} class="aside-anchor">
-                    SIGN UP
+                    VOTE
                   </Link>
                 </li>{" "}
                 <li onClick={closeMenu}>

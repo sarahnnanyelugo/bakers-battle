@@ -74,7 +74,7 @@ export const Navbar = () => {
           <li className="list-inline-item">
             {" "}
             <Link
-              to={"/"}
+              to={"/voting-page"}
               style={{
                 color: "#fff",
                 textDecoration: "none",

@@ -37,7 +37,7 @@ export const FAQAccord = () => {
             </div>
             <div>
               <details>
-                <summary title=" Is the show gender based?">
+                <summary title="What are your opening hours?">
                   Is the show gender based?
                 </summary>
                 <p class="faq-content">
@@ -94,8 +94,7 @@ export const FAQAccord = () => {
                   contestants?
                 </summary>
                 <p class="faq-content">
-                  Our winners will become our brand ambassadors for a period of
-                  time.
+                  With proper authorization, yes you can.
                 </p>
               </details>
             </div>

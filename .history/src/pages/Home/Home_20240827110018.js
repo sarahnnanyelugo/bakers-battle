@@ -257,13 +257,7 @@ export const Home = () => {
               </center>
             </div>
           </Link>{" "}
-          <Link
-            to={
-              "https://www.instagram.com/elixirvictoria?igsh=MXZtbnU2NWc0cGZnNA=="
-            }
-            target="_blank"
-            className="col"
-          >
+          <div className="col">
             <div className="sponsors">
               {" "}
               <center>
@@ -276,7 +270,7 @@ export const Home = () => {
                 />
               </center>
             </div>
-          </Link>{" "}
+          </div>{" "}
           <div className="col">
             <div className="sponsors">
               {" "}

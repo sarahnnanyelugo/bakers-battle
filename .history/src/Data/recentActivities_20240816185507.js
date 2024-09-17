@@ -88,10 +88,10 @@ export const recentActs = [
   {
     alphabet: "S",
     time: "3 hrs ago",
-    schoolName: "Your video on IG just gained 150K views",
+    schoolName: "Your adverts on twitter is getting more retwits",
     schoolDetail: "British College Enugu subscription has expired",
-    Icon: Instagram,
+    Icon: Twitter,
 
-    id: 10,
+    id: 9,
   },
 ];

@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.4",
     "bootstrap": "^5.2.3",
     "chart.js": "^4.4.3",
     "react": "^18.3.1",
@@ -20,6 +21,7 @@
     "react-scripts": "5.0.1",
     "react-signature": "^1.2.4",
     "react-signature-canvas-zwb": "^1.0.4",
+    "react-toastify": "^10.0.5",
     "sass": "^1.77.6",
     "web-vitals": "^2.1.4"
   },

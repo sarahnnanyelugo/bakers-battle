@@ -54,7 +54,7 @@ export default function AdminDashboard() {
         </div>
         <center>
           {" "}
-          <div className="cova">
+          <div style={{ padding: "20px" }}>
             {" "}
             <div className="dash-div col-md-12">
               <div className="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">

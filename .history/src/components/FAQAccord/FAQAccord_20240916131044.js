@@ -31,71 +31,66 @@ export const FAQAccord = () => {
                 </summary>
                 <p class="faq-content">
                   The registration cost's only{" "}
-                  <b>Three Thousand Naira (&#8358;3000)</b>
+                  <b>Three Thousand Naira (3000)</b>
                 </p>
               </details>
             </div>
             <div>
               <details>
-                <summary title=" Is the show gender based?">
-                  Is the show gender based?
+                <summary title="What are your opening hours?">
+                  What are your opening hours?
                 </summary>
                 <p class="faq-content">
-                  The show is for for both genders who are creatively good with
-                  baking and pastries.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
+                  error ea accusantium? Sunt cum in, repudiandae et facere at
+                  nesciunt commodi non quia earum libero aliquid labore
+                  obcaecati repellendus consequatur! Nesciunt impedit ducimus
+                  illum unde optio veritatis atque facere, voluptate a odio
+                  asperiores laudantium rerum.
                 </p>
               </details>
             </div>
             <div>
               <details>
-                <summary title="Will the contestants know what they will bake before the show?">
-                  Will the contestants know what they will bake before the
-                  competition?
+                <summary title="Do I need a referral?">
+                  Do I need a referral?
                 </summary>
                 <p class="faq-content">
-                  Not at all, just get your mind prepared for a puzzle
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis quisquam numquam labore explicabo cupiditate
+                  laboriosam. Ipsam explicabo possimus illum aspernatur.
                 </p>
               </details>
             </div>
             <div>
               <details>
-                <summary title="Will I receive recognition or credit for my appearance on the show?">
-                  Will I receive recognition or credit for my appearance on the
-                  show?
-                </summary>
-                <p class="faq-content">Yes you will</p>
-              </details>
-            </div>
-            <div>
-              <details>
-                <summary title=" ⁠Can I use my appearance on the show for promotional purposes? ">
-                  ⁠Can I use my appearance on the show for promotional purposes?
+                <summary title="Is the cost of the appointment covered by private health insurance?">
+                  Is the cost of the appointment covered by private health
+                  insurance?
                 </summary>
                 <p class="faq-content">
-                  Yes, but only when you are promoting bakers battle
-                </p>
-              </details>
-            </div>{" "}
-            <div>
-              <details>
-                <summary title=" Will I be able to showcase my own business or brand on the show?  ">
-                  Will I be able to showcase my own business or brand on the
-                  show?
-                </summary>
-                <p class="faq-content">
-                  With proper authorization, yes you can.
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Explicabo quos quam asperiores enim sequi nihil? Iure
+                  blanditiis autem in ratione rerum, sequi cupiditate eos nemo
+                  iusto unde eaque voluptatum alias, porro aliquid sunt.
+                  Nesciunt veritatis, ex esse tempora laudantium officiis? Quas
+                  corrupti a aut sed quaerat, ipsa incidunt tempora velit dolor
+                  distinctio repellat tenetur illum consectetur quos veniam eius
+                  provident earum doloremque commodi! Minus amet, obcaecati rem,
+                  modi accusantium ad, deleniti possimus incidunt laudantium
+                  vitae iusto laborum culpa! Similique, repellat.
                 </p>
               </details>
             </div>
             <div>
               <details>
-                <summary title=" Are there any additional opportunities or perks for contestants?  ">
-                  Are there any additional opportunities or perks for
-                  contestants?
+                <summary title="What are the parking and public transport options?">
+                  What are the parking and public transport options?
                 </summary>
                 <p class="faq-content">
-                  Our winners will become our brand ambassadors for a period of
-                  time.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis quisquam numquam labore explicabo cupiditate
+                  laboriosam. Ipsam explicabo possimus illum aspernatur.
                 </p>
               </details>
             </div>

@@ -70,7 +70,7 @@ export const recentActs = [
   {
     alphabet: "W",
     time: "1hr ago",
-    schoolName: "Someone retwitted on your post ",
+    schoolName: "Imad Schools",
     schoolDetail: "Imad Schools subscription just expired",
     Icon: Twitter,
 
@@ -79,19 +79,10 @@ export const recentActs = [
   {
     alphabet: "S",
     time: "3 hrs ago",
-    schoolName: "Your adverts on twitter is getting more retwits",
+    schoolName: "Sultan High School ….",
     schoolDetail: "British College Enugu subscription has expired",
     Icon: Twitter,
 
     id: 9,
-  },
-  {
-    alphabet: "S",
-    time: "3 hrs ago",
-    schoolName: "Your video on IG just gained 150K views",
-    schoolDetail: "British College Enugu subscription has expired",
-    Icon: Instagram,
-
-    id: 10,
   },
 ];

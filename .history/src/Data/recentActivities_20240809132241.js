@@ -6,7 +6,7 @@ export const recentActs = [
   {
     alphabet: "S",
     time: "Now",
-    schoolName: "Hilda Bacci just registered",
+    schoolName: "St. Crigs High School",
     schoolDetail: "St Crigs High School completed their registration",
     Icon: FB,
 
@@ -15,7 +15,7 @@ export const recentActs = [
   {
     alphabet: "D",
     time: "10 mins ago",
-    schoolName: "Hilda Bacci just signed up",
+    schoolName: "Dominic College",
     schoolDetail: "St Dominic College renewed their subscription.",
     Icon: Instagram,
 
@@ -24,7 +24,7 @@ export const recentActs = [
   {
     alphabet: "C",
     time: "20 mins ago",
-    schoolName: "Chef Dami just signed up",
+    schoolName: "CharlesLake School",
     schoolDetail: "CharlesLake School subscription just expired.",
     Icon: Whatsapp,
 
@@ -33,7 +33,7 @@ export const recentActs = [
   {
     alphabet: "D",
     time: "40 mins ago",
-    schoolName: "Chef Dami just registered",
+    schoolName: "Dowen College",
     schoolDetail: "Down College paid their subscription fee.",
     Icon: Instagram,
 
@@ -42,7 +42,7 @@ export const recentActs = [
   {
     alphabet: "D",
     time: "40 mins ago",
-    schoolName: "Chioma Davido AKA Chef  Chi registered",
+    schoolName: "Dowen College",
     schoolDetail: "Dowen College completed their registration",
     Icon: Whatsapp,
 
@@ -51,7 +51,7 @@ export const recentActs = [
   {
     alphabet: "B",
     time: "1hr ago",
-    schoolName: "Chef Chi just viewed your video",
+    schoolName: "British College Enugu",
     schoolDetail:
       "British College Enugu completed their registration and has been add to South East Zone.",
     Icon: Twitter,
@@ -61,7 +61,7 @@ export const recentActs = [
   {
     alphabet: "W",
     time: "1hr ago",
-    schoolName: "Chef Mike joined the whatsapp group through the link",
+    schoolName: "WiseVille Montessori",
     schoolDetail: "WiseVille Montessori subscription has expired.",
     Icon: Whatsapp,
 
@@ -70,7 +70,7 @@ export const recentActs = [
   {
     alphabet: "W",
     time: "1hr ago",
-    schoolName: "Someone retwitted on your post ",
+    schoolName: "Imad Schools",
     schoolDetail: "Imad Schools subscription just expired",
     Icon: Twitter,
 
@@ -79,19 +79,10 @@ export const recentActs = [
   {
     alphabet: "S",
     time: "3 hrs ago",
-    schoolName: "Your adverts on twitter is getting more retwits",
+    schoolName: "Sultan High School ….",
     schoolDetail: "British College Enugu subscription has expired",
     Icon: Twitter,
 
     id: 9,
-  },
-  {
-    alphabet: "S",
-    time: "3 hrs ago",
-    schoolName: "Your video on IG just gained 150K views",
-    schoolDetail: "British College Enugu subscription has expired",
-    Icon: Instagram,
-
-    id: 10,
   },
 ];
