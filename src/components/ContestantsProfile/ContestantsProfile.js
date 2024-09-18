@@ -1,42 +1,152 @@
 import "./profile.scss";
-import Img from "../../assets/images/contest.png";
-import { Link, useLocation, useParams } from "react-router-dom";
-import { FileUpload } from "../FileUpload/FileUpload";
-import Photo from "../../assets/images/photo.png";
-import Sample from "../../assets/images/sample.png";
-import { useRef, useCallback, useState, useEffect } from "react";
-import Accordion from "react-bootstrap/Accordion";
-import Flier from "../FlierModal/FlierModal";
-import Button from "react-bootstrap/Button";
+import { Link,useNavigate } from "react-router-dom";
+import {useState, useEffect, useContext} from "react";
 import Modal from "react-bootstrap/Modal";
-import { schools } from "../../Data/schoolsData";
-export const ContestantsProfile = ({ profile }) => {
-  const [lgShow, setLgShow] = useState(false);
-  const [aprove, setAprove] = useState("Aprove");
-  const [pend, setPend] = useState("Pend");
-  const [decline, setDecline] = useState("Decline");
-  const inputRef = useRef(null);
-  const [data, setData] = useState({});
-  const [value, setValue] = useState("");
-  const [id, setId] = useState(0);
+import Swal from "sweetalert2";
+import axios from "axios";
+import {AuthUserContext} from "../../services/AuthUserContext";
 
-  function Aprove() {
-    setAprove("Aproved!");
+export const ContestantsProfile = ({ profile,callback }) => {
+  const [lgShow, setLgShow] = useState(false);
+  const [aprove, setAprove] = useState("Approve");
+  const [decline, setDecline] = useState("Decline");
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false); // For API call loading state
+  const navigate = useNavigate();
+  const {authAdmin, setAuthAdmin} = useContext(AuthUserContext);
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
+  // Function to send the approval status to the API
+  const handleApprovalStatus = async (status, note) => {
+    try {
+      setLoading(true);
+      const response = await axios.post(
+          `${baseUrl}/api/admin/contestants/approval`,
+          {
+            contestant_id: profile.id,
+            approval_status: status,
+            note: note, // Include the note
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${authAdmin.token}`, // Using token from authAdmin
+            },
+          }
+      );
+
+      if (response.data.success) {
+        // Generate WhatsApp message URL
+        const message = `Hello ${profile.name},\n\nYour contest application has been ${status.toLowerCase()}.\n\nDetails: \n`;
+        const whatsappUrl = `https://wa.me/${profile.phone}?text=${encodeURIComponent(
+            message
+        )}`;
+
+        // Open WhatsApp web in a new tab with the message
+        window.open(whatsappUrl, "_blank");
+
+        // Update button text accordingly
+        if (status === "approved") setAprove("Approved!");
+        else if (status === "declined") setDecline("Declined!");
+
+        Swal.fire({
+          title: 'Success!',
+          text: `Contestant has been ${status.toLowerCase()} successfully.`,
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Failed to update contestant status.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+        console.error("Failed to update approval status:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error updating approval status:", error);
+      Swal.fire({
+        title: 'Error!',
+        text: error?.response?.data?.message||'Something went wrong while processing the request.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    } finally {
+      setLoading(false);
+      setLgShow(false)
+      return callback?callback():null;
+    }
+  };
+
+// Unified function for both Approve and Decline actions
+  const handleContestantAction = (status) => {
+    const actionText = status === 'approved' ? 'Approve' : 'Decline';
+
+    Swal.fire({
+      title: `Are you sure you want to ${actionText} this contestant?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: actionText,
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Call the API to handle approval/decline status
+        handleApprovalStatus(status).then((response) => {
+          // Swal.fire({
+          //   title: `${actionText}d!`,
+          //   text: `Contestant has been ${actionText}d successfully.`,
+          //   icon: 'success',
+          // });
+
+          // Example: Redirect or perform further actions after success
+          // navigate('/admin/contestants'); // Adjust based on your needs
+        }).catch(error => {
+          console.error('Error updating status:', error);
+          Swal.fire({
+            title: 'Error!',
+            text: `An error occurred while trying to ${actionText} the contestant.`,
+            icon: 'error',
+          });
+        });
+      }
+    });
+  };
+  function Approve() {
+    handleContestantAction('approved'); // Pass 'approved' for approval action
   }
+
   function Decline() {
-    setDecline("Declined!");
+    handleContestantAction('declined'); // Pass 'declined' for decline action
   }
-  function Pend() {
-    setPend("Pended!");
-  }
-  function Aprove() {
-    setAprove("Aproved!");
-  }
+
   useEffect(() => {
     if (!profile) return;
     console.log(profile);
     setData(profile);
   }, []);
+
+  const setBackgroundForSource=(source)=>{
+    switch (source?.toLowerCase()) {
+      case 'facebook':
+        return 'btn-outline-primary';
+      case 'whatsapp':
+        return 'btn-outline-info';
+      default:
+        return 'btn-outline-success';
+
+    }
+  }
+  const setBackgroundForApprovalStatus=(status)=>{
+    switch (status?.toLowerCase()) {
+      case 'approved':
+        return 'btn-outline-success text-success';
+      case 'declined':
+        return 'btn-outline-danger text-danger';
+      default:
+        return 'btn-outline-warning text-warning';
+
+    }
+  }
 
   return (
     <>
@@ -66,7 +176,7 @@ export const ContestantsProfile = ({ profile }) => {
                   </h2>
                 </div>
                 <div className="col-md-3">
-                  <img src={data.profilePhoto} width="100%" />
+                  <img src={data.dp} width="100%" />
                 </div>
               </div>
               <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
@@ -92,15 +202,20 @@ export const ContestantsProfile = ({ profile }) => {
               <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
                 <div className="col">
                   <h6>Address</h6>
-                  <p>{data.address1}</p>
+                  <p>{data.address}</p>
                 </div>{" "}
                 <div className="col">
                   <h6>Social media handle</h6>
-                  <p>{data.mediaHandle}</p>
+                  <Link className={"text-info"} to={data.social_handle} target={'_blank'}><p>{data.social_handle}</p></Link>
                 </div>{" "}
                 <div className="col">
                   <h6>Heard about us through:</h6>
-                  <p>{data.source}</p>
+                  <p className={`btn ${setBackgroundForSource(data.heard_about_us_from)}`}>#{data.heard_about_us_from?.toUpperCase()}</p>
+                </div>
+                <div className="col">
+                  <h6>Approval Status: </h6>
+                  <p className={`btn btn-sm ${setBackgroundForApprovalStatus(data.approval_status)}`}>{data.approval_status?.toUpperCase()}</p>
+
                 </div>
               </div>
             </form>
@@ -108,12 +223,12 @@ export const ContestantsProfile = ({ profile }) => {
             <hr />
             <center>
               {" "}
-              <button className="aprove-btn" onClick={Aprove}>
+              <button className="aprove-btn" onClick={Approve}>
                 {aprove}
               </button>
-              <button className="pend-btn" onClick={Pend}>
-                {pend}{" "}
-              </button>{" "}
+              {/*<button className="pend-btn" onClick={Pend}>*/}
+              {/*  {pend}{" "}*/}
+              {/*</button>{" "}*/}
               <button className="decline-btn" onClick={Decline}>
                 {decline}
               </button>

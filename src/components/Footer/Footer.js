@@ -63,17 +63,17 @@ export const Footer = () => {
             <li>
               <BsFillPatchQuestionFill style={{ fontSize: "22px" }} />
 
-              <Link to={"/faq"}>FAQs</Link>
+              &nbsp;<Link to={"/faq"}>FAQs</Link>
             </li>{" "}
             <li>
               <FaPhoneAlt style={{ fontSize: "22px" }} />
 
-              <Link to={"/contact"}>Contact us</Link>
+              &nbsp;<Link to={"/contact"}>Contact us</Link>
             </li>{" "}
             <li>
               <GiArchiveRegister style={{ fontSize: "22px" }} />
 
-              <Link to={"/registration"}>Register</Link>
+              &nbsp;<Link to={"/registration"}>Register</Link>
             </li>{" "}
           </ul>
         </div>

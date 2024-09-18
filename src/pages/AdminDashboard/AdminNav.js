@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/images/logo2.png";
 import { IoStatsChart } from "react-icons/io5";
-import { MdHowToVote } from "react-icons/md";
+import { MdHowToVote, MdSettings } from "react-icons/md";
 export const AdminNav = () => {
   return (
     <div className="admin-nav">
@@ -30,6 +30,14 @@ export const AdminNav = () => {
               <MdHowToVote />
             </span>
             Voting
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={"./configurations"} activeClassName="active">
+            <span>
+              <MdSettings />
+            </span>
+            Configurations
           </NavLink>
         </li>{" "}
       </ul>

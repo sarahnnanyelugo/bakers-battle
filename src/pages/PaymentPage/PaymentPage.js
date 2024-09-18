@@ -1,39 +1,46 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./payment-page.scss";
-import Switch from "../../assets/images/switch.png";
-import { Link } from "react-router-dom";
-
+import Switch from "../../assets/images/paystack.png";
+import PaystackHook from "./PaystackHook";
 export const PaymentPage = () => {
-  return (
-    <>
-      <div className="payment-div">
-        {" "}
-        <center>
-          <div className="col-md-3 payment-form">
-            <h6>Make your payment</h6>
-            <div className="payment-form">
-              <input value="5000" readOnly />
-              <small>Note:this is a fixed amount</small>
-              <h6>Name</h6>
-              <input type="text" placeholder="enter your name" />
-              <h6>Email</h6>
-              <input type="text" placeholder="enter your email" />
+    const [contestant, setContestant] = useState(null);
+    useEffect(() => {
+        // Retrieve the required data from localStorage
+        const contestant = JSON.parse(localStorage.getItem('contestant'));
+        if (contestant) {
+            setContestant(contestant)
+        }
+    }, []);
+    return (
+        <>
+            <div className="payment-div">
+                {" "}
+                <center>
+                    <div className="col-md-3 payment-form">
+                        <h6>Make your payment</h6>
+                        <div className="payment-form">
+                            <input value={contestant?.amount} readOnly/>
+                            <small>Note:this is a fixed amount</small>
+                            <h6>Name</h6>
+                            <input type="text" value={contestant?.name} placeholder="enter your name" readOnly/>
+                            <h6>Email</h6>
+                            <input type="text" value={contestant?.email} placeholder="enter your email" readOnly/>
+                        </div>
+                        <h4>Payment Method</h4>
+                        <div className="payment-form">
+                            <img src={Switch} width="100%" alt="payment logo"/>
+                        </div>
+                        <center>
+                            {/*<Link*/}
+                            {/*    to={"/success-page"}*/}
+                            {/*    style={{position: "relative", zIndex: 20}}*/}
+                            {/*>*/}
+                                <PaystackHook target={''}/>
+                            {/*</Link>*/}
+                        </center>
+                    </div>
+                </center>
             </div>
-            <h4>Payment Method</h4>
-            <div className="payment-form">
-              <img src={Switch} width="100%" alt="payment logo" />
-            </div>
-            <center>
-              <Link
-                to={"/success-page"}
-                style={{ position: "relative", zIndex: 20 }}
-              >
-                <button>Pay Now (5000)</button>
-              </Link>
-            </center>
-          </div>
-        </center>
-      </div>
-    </>
-  );
+        </>
+    );
 };
