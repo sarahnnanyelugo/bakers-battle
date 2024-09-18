@@ -10,9 +10,13 @@ export const LoginPage = () => {
     const navigate = useNavigate();
     const { authContestant, setAuthContestant } = useContext(AuthUserContext); // Access authenticated user
     const [formData, setFormData] = useState({
-        email: "hexxondiv@gmail.com",
-        password: "password",
+        email: "",
+        password: "",
     });
+    // const [formData, setFormData] = useState({
+    //     email: "hexxondiv@gmail.com",
+    //     password: "password",
+    // });
 
     const handleChange = (e) => {
         const {name, value} = e.target;

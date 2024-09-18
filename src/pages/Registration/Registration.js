@@ -16,17 +16,29 @@ export const Registration = (effect, deps) => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [showPassword, setShowPassword] = useState(false)
     const [formData, setFormData] = useState({
-        name: "Paul Allen",
-        gender: "Male",
-        email: "paulallen@gmail.com",
-        phone: "08068122579",
+        name: "",
+        gender: "",
+        email: "",
+        phone: "",
         password: "",
         password_confirmation: "",
-        address: "Golden Pearls' Estate, Rd 4 House 11",
-        social_handle: "https://instagram.com/hexxondiv",
+        address: "",
+        social_handle: "",
         dp: null,
         heard_about_us_from: "Instagram",
     });
+    // const [formData, setFormData] = useState({
+    //     name: "Paul Allen",
+    //     gender: "Male",
+    //     email: "paulallen@gmail.com",
+    //     phone: "08068122579",
+    //     password: "",
+    //     password_confirmation: "",
+    //     address: "Golden Pearls' Estate, Rd 4 House 11",
+    //     social_handle: "https://instagram.com/hexxondiv",
+    //     dp: null,
+    //     heard_about_us_from: "Instagram",
+    // });
     const [config, setConfig] = useState(null)
 
     const [errors, setErrors] = useState({});

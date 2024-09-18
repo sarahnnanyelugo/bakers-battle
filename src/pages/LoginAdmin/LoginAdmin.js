@@ -10,9 +10,13 @@ export const LoginAdmin = () => {
     const navigate = useNavigate();
     const { authAdmin, setAuthAdmin,setAuthContestant,setAuthVoter } = useContext(AuthUserContext); // Access authenticated user
     const [formData, setFormData] = useState({
-        email: "admin@bakersbattle.com",
-        password: "adminPassword",
+        email: "",
+        password: "",
     });
+    // const [formData, setFormData] = useState({
+    //     email: "admin@bakersbattle.com",
+    //     password: "adminPassword",
+    // });
 
     const handleChange = (e) => {
         const {name, value} = e.target;
