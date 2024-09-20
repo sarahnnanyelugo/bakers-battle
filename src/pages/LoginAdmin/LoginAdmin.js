@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./login-admin.scss";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -6,17 +6,16 @@ import Swal from "sweetalert2";
 import {AuthUserContext} from "../../services/AuthUserContext";
 
 export const LoginAdmin = () => {
-    const token = localStorage.getItem('token'); // Token from localStorage
     const navigate = useNavigate();
     const { authAdmin, setAuthAdmin,setAuthContestant,setAuthVoter } = useContext(AuthUserContext); // Access authenticated user
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
     // const [formData, setFormData] = useState({
-    //     email: "admin@bakersbattle.com",
-    //     password: "adminPassword",
+    //     email: "",
+    //     password: "",
     // });
+    const [formData, setFormData] = useState({
+        email: "admin@bakersbattle.com",
+        password: "adminPassword",
+    });
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -60,11 +59,7 @@ export const LoginAdmin = () => {
                 localStorage.setItem('token', token);
                 setAuthContestant(null)
                 setAuthVoter(null)
-                setAuthAdmin((prevState) => ({
-                    ...prevState,
-                    user: admin,
-                    token:token,
-                }));
+                setAuthAdmin({user: admin,token:token});
 
                 Swal.fire({
                     title: 'Success!',
@@ -95,7 +90,7 @@ export const LoginAdmin = () => {
     };
 
     // If the user is already logged in
-    if (authAdmin?.token && authAdmin?.user) {
+    if (authAdmin?.token) {
         return (
             <div className="success-page-div col-md-4 offset-md-4">
                 <center>
@@ -149,7 +144,7 @@ export const LoginAdmin = () => {
                     <center>
                         <button type="submit" className="button-57">
                             <span className="text">Login</span>
-                            <span>Contestant Login</span>
+                            <span>Admin Login</span>
                         </button>
                     </center>
                 </form>

@@ -4,7 +4,7 @@ import "./sucess-page.scss";
 import {Link} from "react-router-dom";
 export const SuccessPage = () => {
     const success_data = JSON.parse(localStorage.getItem('success_data'))||null;
-
+    const redirectPage=localStorage.getItem('page')
     if(!success_data)
         return (<div className="success-page-div col-md-4 offset-md-4">
             <center>
@@ -22,7 +22,7 @@ export const SuccessPage = () => {
         <h5>Payment Successful!</h5>
         <Checkmark />
         <p>Payment of NGN{success_data.data.amount} was confirmed! </p>
-          <Link to={'/'} className={'btn text-success'}>Return Home</Link>
+          <Link to={redirectPage?redirectPage:'/'} className={'btn text-success'}>Return Home</Link>
       </center>
     </div>
   );

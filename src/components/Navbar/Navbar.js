@@ -35,17 +35,18 @@ export const Navbar = () => {
     let currentUrl;
     useEffect(() => {
         currentUrl = location.pathname;
+        // console.log('authVoter',authVoter, 'authAdmin',authAdmin,'authContestant', authContestant)
     });
 
     useEffect(() => {
         if (prevUrlRef.current !== currentUrl) {
             prevUrlRef.current = currentUrl;
-            // console.log(currentUrl);
             setTimeout(() => {
                 switch (currentUrl) {
                     case "/dashboard-layout/admin-dashboard":
                     case "/dashboard-layout/voting":
                     case "/dashboard-layout/configurations":
+                    case "/dashboard-layout/stages":
                     case "/voting-page":
                         setShowNav(false);
                         break;
@@ -69,25 +70,42 @@ export const Navbar = () => {
                                 color: "#fff",
                                 textDecoration: "none",
                                 fontFamily: "soraB",
+                                paddingRight:"10px",
+                                borderRight:"1px solid #fff",
                             }}
                         >
-                            Admin
+                            ADMIN
                         </Link>
 
                     </li>}
-                    {authVoter && <li className="list-inline-item">
+                    {(!authAdmin && !authContestant) &&
+                    <li className="list-inline-item">
+                        <Link to={"/registration"} style={{
+                            color: "#fff",
+                            textDecoration: "none",
+                            fontFamily: "soraB",
+                            paddingRight:"10px",
+                            borderRight:"1px solid #fff",
+                        }}>
+                            <span className={`${currentUrl?.contains('registration')?"text-danger":""}`}>REGISTER</span>
+                        </Link>
+                    </li>}
+                    <li className="list-inline-item">
                         <Link
                             to={"/voting-page"}
                             style={{
                                 color: "#fff",
                                 textDecoration: "none",
                                 fontFamily: "soraB",
+                                paddingRight:"10px",
+                                borderRight:"1px solid #fff",
                             }}
                         >
-                            Vote
+                            VOTING PAGE
                         </Link>
 
-                    </li>}
+                    </li>
+
                     {authContestant && <li className="list-inline-item">
                         <Link
                             to={"/my-profile"}
@@ -95,9 +113,11 @@ export const Navbar = () => {
                                 color: "#fff",
                                 textDecoration: "none",
                                 fontFamily: "soraB",
+                                paddingRight:"10px",
+                                borderRight:"1px solid #fff",
                             }}
                         >
-                            My Profile
+                            MY PROFILE
                         </Link>
 
                     </li>}
@@ -188,7 +208,12 @@ export const Navbar = () => {
                                 }
                                 {authVoter && <li onClick={closeMenu}>
                                     <Link to={"/voting-page"} class="aside-anchor">
-                                        VOTE
+                                        VOTING PAGE
+                                    </Link>
+                                </li>}
+                                {(authVoter || authAdmin || authContestant) && <li onClick={closeMenu}>
+                                    <Link to={"/logout"} class="aside-anchor">
+                                        <span className="text-danger">LOGOUT</span>
                                     </Link>
                                 </li>}
                             </ul>

@@ -3,8 +3,8 @@ import AdminDashboard from "./AdminDashboard/AdminDashboard";
 import {Routes, Route, Navigate} from "react-router-dom";
 import {AdminNav} from "./AdminDashboard/AdminNav";
 import {Voting} from "./Voting/Voting";
-import {ContestantsProfile} from "../components/ContestantsProfile/ContestantsProfile";
 import {Configurations} from "./Configurations/Configurations";
+import {Stages} from "./Stages/Stages";
 
 export const DashboardLayout = () => {
     return (
@@ -17,7 +17,7 @@ export const DashboardLayout = () => {
                     <Route path="/admin-dashboard" element={<AdminDashboard/>}/>{" "}
                     <Route path="/voting" element={<Voting/>}/>{" "}
                     <Route path="/configurations" element={<Configurations/>}/>{" "}
-                    {/* <Route path="/contestants-profile" element={<ContestantsProfile />} />{" "} */}
+                    <Route path="/stages" element={<Stages/>}/>{" "}
                 </Routes>
             </div>
         </div>

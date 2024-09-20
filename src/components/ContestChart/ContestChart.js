@@ -61,15 +61,28 @@ export const options = (drillPage, data) => ({
   },
 });
 
+// Function to generate a gradient of colors from dark green to red
+function generateColors(numColors) {
+  const colors = [];
+  for (let i = 0; i < numColors; i++) {
+    const greenToRed = i / (numColors - 1); // Creates a value between 0 (dark green) and 1 (red)
+    const red = Math.round(255 * greenToRed); // Red increases as the value increases
+    const green = Math.round(100 * (1 - greenToRed)); // Start at 100 for dark green and decrease
+    colors.push(`rgb(${red},${green},0)`); // Creates rgb(r,g,0) color
+  }
+  return colors;
+}
+
 export function ContestChart({ labels, dataset, drillPage }) {
+  const backgroundColor = generateColors(dataset.length); // Generate colors based on the number of dataset items
   const data = {
     labels,
     datasets: [
       {
-        label: "Registrations",
+        label: "Votes",
         data: dataset,
-        backgroundColor: "rgb(30,61,115)",
-        borderRadius: 10,
+        backgroundColor: backgroundColor?backgroundColor:"rgb(30,61,115)",
+        borderRadius: 20,
         // aspectRatio: 1,
       },
     ],

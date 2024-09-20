@@ -7,7 +7,7 @@ import {AuthUserContext} from "../../services/AuthUserContext";
 import axios from "axios";
 import moment from 'moment';
 
-const AppTable = () => {
+const AppTable = ({callback}) => {
     const navigate = useNavigate();
     const {authAdmin, setAuthAdmin} = useContext(AuthUserContext);
     const [data,setData]=useState(null);
@@ -124,7 +124,7 @@ const AppTable = () => {
                             <td>{item.phone}</td>
                             <td>{item.gender}</td>
                             <td className="edit">
-                                <ContestantsProfile profile={item} callback={fetchTable}/>
+                                <ContestantsProfile profile={item} callbackParent={callback} callback={fetchTable}/>
                             </td>
                         </tr>
                     ))}

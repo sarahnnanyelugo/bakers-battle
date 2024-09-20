@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { ContestChart } from "../../components/ContestChart/ContestChart";
@@ -10,34 +10,64 @@ import Chi from "../../assets/images/chi.jpeg";
 import Dami from "../../assets/images/dami.jpeg";
 import Logo from "../../assets/images/logo2.png";
 import { useVotes } from "../../components/VoteContexts";
+import { MdHowToVote, MdSettings,MdOutlineLogout, MdCountertops, MdRefresh } from "react-icons/md";
+
 import "./voting-page.scss";
 import { Link } from "react-router-dom";
 import { PaymentPage } from "../PaymentPage/PaymentPage";
 import { RechargePage } from "../../components/RechargePage/RechargePage";
-// const customData = [50, 100, 80, 90, 70, 80];
-const customLabels = [
-  "Chef Chi",
-  "Chef Hilda",
-  "Chef Dami",
-  "Chef Mike",
-  "Chef Segun",
-  "Chef Lola",
-];
-const originalVotes = [50, 100, 80, 90, 70, 80];
+import {useApiVotes} from "../../services/VoteApiContext";
+import {formatCurrency, GetPubConfig, GetVoter} from "../../utils/utils";
+import moment from "moment";
+import {AuthUserContext} from "../../services/AuthUserContext";
 
 function VotingPage() {
   const [lgShow, setLgShow] = useState(false);
-  const { votes, incrementVote, resetVotes } = useVotes(); // Use the votes and increment
+  const { votes,labels,contestants, incrementVote, resetVotes } = useApiVotes(); // Use the votes and increment
+  const [config, setConfig] = useState(null)
+  const {authVoter, setAuthVoter} = useContext(AuthUserContext);
+  const [calling,setCalling]=useState(false)
   const sortedData = [...votes]
-    .map((vote, index) => ({ vote, label: customLabels[index] }))
-    .sort((a, b) => b.vote - a.vote);
+      .map((vote, index) => ({ vote, label: labels[index] }))
+      .sort((a, b) => b.vote - a.vote);
 
   const sortedVotes = sortedData.map((item) => item.vote);
   const sortedLabels = sortedData.map((item) => item.label);
   const handleRestoreDefault = () => {
+    setCalling(true)
     resetVotes(); // Call the reset function from the context to restore default votes
+    fetchVoter().then(()=>{});
+    setTimeout(()=>{
+      setCalling(false)
+    },1000)
   };
+  const fetchConfig = async () => {
+    const conf = await GetPubConfig(); // Await the result
+    if (conf) {
+      setConfig(conf);
+    }
+  };
+  const fetchVoter = async () => {
+    const token = localStorage.getItem('token')
+    const voter = await GetVoter(); // Await the result
+    if (voter) {
+      setAuthVoter({
+        token:token,
+        user:voter,
+      })
+    }
+  };
+  useEffect(() => {
+    fetchConfig().then(r => {
+    });
+    fetchVoter().then(r => {
+    }); // Call the function to fetch the config
+  }, []);
 
+  useEffect(() => {
+    fetchVoter().then(r => {
+    }); // Call the function to fetch the config
+  }, [contestants]);
   return (
     <>
       {" "}
@@ -55,122 +85,77 @@ function VotingPage() {
         </h6>
         <h6>Before you proceed, kindly note the following details:</h6>
       </center>
-      <ul className="offset-md-1">
-        <li>One vote cost's 50 naira</li>
+      <ul className="col-md-10 offset-md-1">
+        <li>One vote costs <strong>{formatCurrency(config?.price_per_vote)}</strong></li>
         <li>You are at liberty to vote as many times as you want</li>
-        <li>Voting begins at ..... and ends at ....</li>
+        <li>Voting begins at {moment(config?.voting_starts).format('Do MMMM, YYYY')||'...'} and ends at {moment(config?.voting_ends).format('Do MMMM, YYYY')||'...'}</li>
         <li>
-          You must recharge your wallet with a minimum of *FIVE HUNDRED NAIRA*
-          to vote
+          You must recharge your wallet to vote. Minimum wallet recharge is <strong>{formatCurrency(config?.minimum_wallet_recharge||500)}</strong>
         </li>
       </ul>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          {!config?.voting_status?<>
+            <h3 className="alert alert-danger d-md-flex justify-content-md-between">Voting Is Currently Inactive
+              <span className='btn-group'><RechargePage />
+                {calling ? <span className="btn"><div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div></span>:<span onClick={handleRestoreDefault} className="btn btn-outline-info"><MdRefresh/></span>}
+              </span>
+            </h3>
+          </>:<>
+            {contestants?.length?<h4 className="alert alert-info d-md-flex justify-content-md-between"><span>Active Contestants</span>
+                  <span className='btn-group'><RechargePage />
+                    {calling ? <span className="btn"><div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div></span>:<span onClick={handleRestoreDefault} className="btn btn-outline-info"><MdRefresh/></span>}
+                  </span>
+
+            </h4>
+                :
+                <h3 className="alert alert-warning d-md-flex justify-content-md-between">No Contestant in current Stage
+                  <span className='btn-group'>
+                    <RechargePage />
+                    {calling ? <span className="btn"><div className="spinner-border spinner-border-sm" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div></span>:<span onClick={handleRestoreDefault} className="btn btn-outline-info"><MdRefresh/></span>}
+                  </span>
+
+                </h3>
+            }
+          </>}
+
+        </div>
+      </div>
       <div
         className="col-md-10 offset-md-1 d-md-flex"
         style={{ marginTop: "0px" }}
       >
         <div className="col-md-4 contestants">
-          <div className="col-md-12">
-            <div className="d-flex">
-              {" "}
-              <img src={Chi} />
-              <div>
-                <button
-                  class="button-57"
-                  role="button"
-                  onClick={() => incrementVote(0)}
-                  style={{ flex: "1" }}
-                >
-                  <span class="text"> Chef Chi</span>
-                  <span>VOTE(&#8358;50)</span>
-                </button>
-              </div>
-            </div>
-            <div className="d-flex">
-              {" "}
-              <img src={Hilda} />
-              <div>
+          {contestants?.length?<div className="col-md-12">
+            {contestants?.map((contestant, index) => (<>
+              <div key={index} className="d-flex">
                 {" "}
-                <button
-                  class="button-57"
-                  role="button"
-                  onClick={() => incrementVote(1)}
-                  style={{ flex: "1" }}
-                >
-                  <span class="text"> Chef Hilda</span>
-                  <span>VOTE(&#8358;50)</span>
-                </button>
+                <Link to={contestant?.dp} target={'_blank'}><img src={contestant?.dp}/></Link>
+                <div>
+                  <button
+                      className="button-57"
+                      role="button"
+                      onClick={() => incrementVote(contestant?.id)}
+                      style={{flex: "1"}}
+                  >
+                    <span className="text"> {contestant?.name}: <strong>{contestant?.votes}</strong></span>
+                    <span>VOTE ({formatCurrency(config?.price_per_vote || 50)})</span>
+                  </button>
+                </div>
               </div>
-            </div>{" "}
-            <div className="d-flex">
-              {" "}
-              <img src={Dami} />
-              <div>
-                {" "}
-                <button
-                  class="button-57"
-                  role="button"
-                  onClick={() => incrementVote(2)}
-                  style={{ flex: "1" }}
-                >
-                  <span class="text"> Chef Dami</span>
-                  <span>VOTE(&#8358;50)</span>
-                </button>
-              </div>
-            </div>
-            <div className="d-flex">
-              <img src={Mike} />
-              <div>
-                <button
-                  class="button-57"
-                  role="button"
-                  onClick={() => incrementVote(3)}
-                  style={{ flex: "1" }}
-                >
-                  <span class="text"> Chef Mike</span>
-                  <span>VOTE(&#8358;50)</span>
-                </button>
-              </div>
-            </div>{" "}
-            <div className="d-flex">
-              {" "}
-              <img src={Segun} />
-              <div>
-                {" "}
-                <button
-                  class="button-57"
-                  role="button"
-                  onClick={() => incrementVote(4)}
-                  style={{ flex: "1" }}
-                >
-                  <span class="text"> Chef Segun</span>
-                  <span>VOTE(&#8358;50)</span>
-                </button>
-              </div>
-            </div>
-            <div className="d-flex">
-              {" "}
-              <img src={Lola} />
-              <div>
-                {" "}
-                <button
-                  class="button-57"
-                  role="button"
-                  onClick={() => incrementVote(5)}
-                  style={{ flex: "1" }}
-                >
-                  <span class="text"> Chef Lola</span>
-                  <span>VOTE(&#8358;50)</span>
-                </button>
-              </div>
-            </div>
-          </div>
+            </>))}
+          </div>: <></>
+          }
         </div>
         <div className="chart-container col-md-8" style={{ marginTop: 0 }}>
-          <div className="offset-md-9 ">
-            <RechargePage />
-          </div>
 
-          <ContestChart labels={sortedLabels} dataset={sortedVotes} />
+          {contestants?.length>0 && <ContestChart labels={sortedLabels} dataset={sortedVotes} />}
         </div>
       </div>
     </>

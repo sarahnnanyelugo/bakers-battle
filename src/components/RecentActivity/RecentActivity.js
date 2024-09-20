@@ -5,12 +5,13 @@ import instagram from "../../assets/images/instagram.jpeg";
 import whatsapp from "../../assets/images/whatsapp.png";
 import twitter from "../../assets/images/twitter.jpeg";
 import linkedin from "../../assets/images/Linkedin.png";
+import youtube from "../../assets/images/youtube.jpg";
 import others from "../../assets/images/others.png";
 import moment from 'moment';
 
 export const RecentActivity = ({data}) => {
     const getImg=(source)=>{
-        switch (source) {
+        switch (source?.toLowerCase()) {
             case 'facebook':
                 return facebook;
             case 'instagram':
@@ -21,6 +22,8 @@ export const RecentActivity = ({data}) => {
                 return  twitter;
             case 'linkedin':
                 return linkedin;
+            case 'youtube':
+                return youtube;
             default:
                 return others;
         }

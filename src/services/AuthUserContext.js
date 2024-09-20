@@ -1,50 +1,66 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {createContext, useState, useEffect} from "react";
 
 // Create the context
 export const AuthUserContext = createContext();
 
 // AuthUserProvider component to wrap around components that need authentication logic
 export const AuthUserProvider = ({ children }) => {
-    const [authVoter, setAuthVoter] = useState(null); // Store authenticated user info
-    const [authContestant, setAuthContestant] = useState(null); // Store authenticated user info
-    const [authAdmin, setAuthAdmin] = useState(null); // Store authenticated user info
+    const contestantToken = JSON.parse(localStorage.getItem('contestant'));
+    const adminToken = JSON.parse(localStorage.getItem("admin"));
+    const voterToken = JSON.parse(localStorage.getItem('voter'));
+    const token = localStorage.getItem("token");
 
-    // Simulate checking if a user is logged in by getting token from localStorage
+    const [authVoter, setAuthVoter] = useState(() => {
+        return (voterToken&&token) ? {user:voterToken,token:token} : null;
+    }); // Store authenticated voter info
+    const [authContestant, setAuthContestant] = useState(
+        () => {
+            // Try to get the initial state from localStorage
+            return (contestantToken&&token) ? {user:contestantToken,token:token} : null;
+        }
+    ); // Store authenticated user info
+    const [authAdmin, setAuthAdmin] = useState(
+        () => {
+            // Try to get the initial state from localStorage
+            return (adminToken&&token) ? {user:adminToken,token:token} : null;
+        }
+    ); // Store authenticated user info
+
+
     useEffect(() => {
-        const contestantToken = localStorage.getItem("token");
-        const adminToken = localStorage.getItem("admin_token");
-        const voterToken = localStorage.getItem("voter_token");
+        if(!token)
+        {
+            setAuthVoter(null);
+            setAuthAdmin(null);
+            setAuthContestant(null)
+            return;
+        }
         if (adminToken) {
+            setAuthVoter(null);
+            setAuthContestant(null)
             // You could also fetch user info here based on the token
-            const admin = localStorage.getItem("admin");
             setAuthAdmin({
-                user: admin, // Set this to the actual user details you get from an API
-                token: adminToken,
+                user: adminToken, // Set this to the actual user details you get from an API
+                token: token,
             });
-        } else {
-            setAuthAdmin(null); // No user logged in
-        }
-        if (contestantToken) {
+        } else if (contestantToken) {
+            setAuthVoter(null);
+            setAuthAdmin(null);
             // You could also fetch user info here based on the token
-            const contestant = JSON.parse(localStorage.getItem('contestant'));
             setAuthContestant({
-                user: contestant, // Set this to the actual user details you get from an API
-                token: contestantToken,
+                user: contestantToken, // Set this to the actual user details you get from an API
+                token: token,
             });
-        } else {
-            setAuthContestant(null); // No user logged in
-        }
-        if (voterToken) {
+        } else if (voterToken) {
+            setAuthAdmin(null);
+            setAuthContestant(null)
             // You could also fetch user info here based on the token
-            const voter = JSON.parse(localStorage.getItem('voter'));
             setAuthVoter({
-                user: voter, // Set this to the actual user details you get from an API
-                token: voterToken,
+                user: voterToken, // Set this to the actual user details you get from an API
+                token: token,
             });
-        } else {
-            setAuthVoter(null); // No user logged in
         }
-    }, []);
+    },[children]);
 
     return (
         <AuthUserContext.Provider value={{ authVoter, setAuthVoter,authContestant, setAuthContestant,authAdmin, setAuthAdmin }}>

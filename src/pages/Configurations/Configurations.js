@@ -5,8 +5,8 @@ import axios from "axios";
 import moment from 'moment';
 import {useNavigate} from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
-import {formatCurrency} from "../../utils/utils";
-import { MdCopyAll, MdPanoramaFishEye,MdKeyboardHide,MdSecurityUpdate } from "react-icons/md"
+import {formatCurrency, GetAdminConfig} from "../../utils/utils";
+import { MdCopyAll, MdRadioButtonChecked, MdPanoramaFishEye,MdKeyboardHide,MdSecurityUpdate } from "react-icons/md"
 import Swal from "sweetalert2";
 export const Configurations=()=>{
     const {authAdmin, setAuthAdmin} = useContext(AuthUserContext);
@@ -14,25 +14,12 @@ export const Configurations=()=>{
     const navigate = useNavigate();
     const [editing,setEditing]=useState(false)
     const [showSecret,setShowSetSecret]=useState(false)
-
+// Access the base URL from the environment variable
+    const baseUrl = process.env.REACT_APP_API_BASE_URL;
     const fetchConfig = async () => {
-        try {
-            const baseUrl = process.env.REACT_APP_API_BASE_URL;
-            const response = await axios.post(`${baseUrl}/api/admin/get-configurations`, {}, {
-                headers: {
-                    Authorization: `Bearer ${authAdmin.token}`, // Using token from authAdmin
-                },
-            });
-
-            // console.log('API Response:', response.data); // Log the response
-            setData(response.data);
-        } catch (error) {
-            console.error("Error fetching summary data:", error);
-            if (error.response && error.response.status === 401) {
-                setAuthAdmin(null);
-                localStorage.removeItem('authAdmin');
-                navigate('/admin');
-            }
+        const adminConfig = await GetAdminConfig();
+        if (adminConfig) {
+            setData(adminConfig);
         }
     };
     useEffect(() => {
@@ -59,8 +46,7 @@ export const Configurations=()=>{
 
     const handleSubmitConfig = async (e) => {
         e.preventDefault();
-        // Access the base URL from the environment variable
-        const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
         try {
             const response = await axios.post(`${baseUrl}/api/admin/save-configurations`, data, {
                 headers: {
@@ -90,6 +76,35 @@ export const Configurations=()=>{
         }
     };
 
+    async function toggleStatus(votingStatus, status) {
+        try {
+            const response = await axios.post(`${baseUrl}/api/admin/toggle-status`, {field: votingStatus,value:status}, {
+                headers: {
+                    Authorization: `Bearer ${authAdmin.token}`,
+                },
+            });
+            if (response.data.success) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: response.data.message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    fetchConfig().then(r => {
+                    }); // Call the function to fetch data
+                });
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                Swal.fire({
+                    title: 'Error!',
+                    html: '<p>Configurations could not be saved at the moment. <br> Please check your inputs.</p><p>' + error.response.data?.message || error.response?.message + '</p>',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        }
+    }
 
     return (
         <>
@@ -107,9 +122,45 @@ export const Configurations=()=>{
                             <form className="col-md-6">
                                 <div className="row">
                                     <div className="col mt-3">
+                                        <div className="input-group-text">Registration Status</div>
+                                        <div className="btn-group">
+                                            <span onClick={()=>{toggleStatus('registration_status',1)}} className={`btn ${data?.registration_status?'btn-success':'btn-outline-success'}`}>{data?.registration_status===1 &&<MdRadioButtonChecked/>}Open</span>
+                                            <span onClick={()=>{toggleStatus('registration_status',0)}} className={`btn ${!data?.registration_status?'btn-danger':'btn-outline-danger'}`}>{data?.registration_status===0 &&<MdRadioButtonChecked/>}Closed</span>
+                                        </div>
+                                    </div>
+                                    <div className="col mt-3">
+                                        <div className="input-group-text">Voting Status</div>
+                                        <div className="btn-group">
+                                            <span onClick={()=>{toggleStatus('voting_status',1)}} className={`btn ${data?.voting_status?'btn-success':'btn-outline-success'}`}>{data?.voting_status===1 &&<MdRadioButtonChecked/>}Open</span>
+                                            <span onClick={()=>{toggleStatus('voting_status',0)}} className={`btn ${!data?.voting_status?'btn-danger':'btn-outline-danger'}`}>{data?.voting_status===0 &&<MdRadioButtonChecked/>}Closed</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div className="row">
+                                    <div className="col mt-5">
                                         <div className="input-group">
                                             <div className="input-group-text">Entry Fee</div>
                                             <input onChange={handleChange} type="number" disabled={!editing} className="form-control" name={'registration_fee'} value={data?.registration_fee}/>
+                                            <div className="input-group-text">NGN</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col mt-5">
+                                        <div className="input-group">
+                                            <div className="input-group-text">Voting Price</div>
+                                            <input onChange={handleChange} type="number" disabled={!editing} className="form-control" name={'price_per_vote'} value={data?.price_per_vote}/>
+                                            <div className="input-group-text">NGN</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col mt-5">
+                                        <div className="input-group">
+                                            <div className="input-group-text">Min Wallet Recharge</div>
+                                            <input onChange={handleChange} type="number" disabled={!editing} className="form-control" name={'minimum_wallet_recharge'} value={data?.minimum_wallet_recharge}/>
                                             <div className="input-group-text">NGN</div>
                                         </div>
                                     </div>
@@ -126,12 +177,41 @@ export const Configurations=()=>{
                                 <div className="row">
                                     <div className="col mt-3">
                                         <div className="input-group">
-                                            <div className="input-group-text">Registration Ends</div>
-                                            <input onChange={handleChange} type="date" disabled={!editing} className="form-control" name={'registration_ends'} value={data?.registration_ends}/>
-                                            <div className="input-group-text" title="Current Version Entry Ends on this day">?</div>
+                                            <div className="input-group-text">Registration Starts</div>
+                                            <input onChange={handleChange} type="date" disabled={!editing} className="form-control" name={'registration_starts'} value={data?.registration_starts}/>
+                                            <div className="input-group-text" title="Enter the date to open registration">?</div>
                                         </div>
                                     </div>
                                 </div>
+                                <div className="row">
+                                    <div className="col mt-3">
+                                        <div className="input-group">
+                                            <div className="input-group-text">Registration Ends</div>
+                                            <input onChange={handleChange} type="date" disabled={!editing} className="form-control" name={'registration_ends'} value={data?.registration_ends}/>
+                                            <div className="input-group-text" title="Enter the date to close registration">?</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="row">
+                                    <div className="col mt-3">
+                                        <div className="input-group">
+                                            <div className="input-group-text">Voting Starts</div>
+                                            <input onChange={handleChange} type="date" disabled={!editing} className="form-control" name={'voting_starts'} value={data?.voting_starts}/>
+                                            <div className="input-group-text" title="Enter the date to open voting">?</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col mt-3">
+                                        <div className="input-group">
+                                            <div className="input-group-text">Voting Ends</div>
+                                            <input onChange={handleChange} type="date" disabled={!editing} className="form-control" name={'voting_ends'} value={data?.voting_ends}/>
+                                            <div className="input-group-text" title="Enter the date to close voting">?</div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div className="row">
                                     <div className="col mt-3">
                                         <div className="input-group">

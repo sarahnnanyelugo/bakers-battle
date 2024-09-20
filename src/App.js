@@ -1,3 +1,4 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,17 +19,17 @@ import {DashboardLayout} from "./pages/DashboardLayout";
 import VotingPage from "./pages/VotingPage/VotingPage";
 import {ConfirmedContestants} from "./pages/ConfirmedContestants/ConfirmedContestants";
 import {SuccessPage} from "./pages/SuccessPage/SuccessPage";
-import {AuthUserProvider} from "./services/AuthUserContext";
 import {VoterProfilePage} from "./pages/VoterProfilePage/VoterProfilePage";
 import {LoginPage} from "./pages/LoginPage/LoginPage";
+import {LogoutPage} from "./pages/LogoutPage/LogoutPage";
 import {LoginAdmin} from "./pages/LoginAdmin/LoginAdmin";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
     return (
         <>
             <div id="top"/>
             <ScrollToTop/>
-            <AuthUserProvider>
                 <Navbar/>
                 <Routes>
                     <Route path="/" element={<Home/>}/>{" "}
@@ -38,11 +39,13 @@ function App() {
                     <Route path="/sponsors" element={<Sponsors/>}/>{" "}
                     <Route path="/about" element={<About/>}/>{" "}
                     <Route path="/payment" element={<PaymentPage/>}/>{" "}
+                    <Route path="//payment-wallet" element={<PaymentPage/>}/>{" "}
                     <Route path="dashboard" element={<AdminDashboard/>}/>{" "}
                     <Route path="voting-page" element={<VotingPage/>}/>{" "}
                     <Route path="success-page" element={<SuccessPage/>}/>{" "}
                     <Route path="/my-profile" element={<VoterProfilePage/>}/>{" "}
                     <Route path="/login" element={<LoginPage/>}/>{" "}
+                    <Route path="/logout" element={<LogoutPage/>}/>{" "}
                     <Route path="/admin" element={<LoginAdmin/>}/>{" "}
                     <Route
                         path="confirmed-contestants"
@@ -50,7 +53,6 @@ function App() {
                     />{" "}
                     <Route path="dashboard-layout/*" element={<DashboardLayout/>}/>{" "}
                 </Routes>
-            </AuthUserProvider>
             <Footer/>
             <div className="offset-md-11 top-icon offset-9">
                 {" "}
@@ -60,6 +62,7 @@ function App() {
                     </a>
                 </center>
             </div>
+            <ToastContainer />
         </>
     );
 }

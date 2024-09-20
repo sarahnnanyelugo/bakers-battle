@@ -25,6 +25,7 @@
     "react-scripts": "5.0.1",
     "react-signature": "^1.2.4",
     "react-signature-canvas-zwb": "^1.0.4",
+    "react-toastify": "^10.0.5",
     "sass": "^1.77.6",
     "sweetalert2": "^11.14.0",
     "sweetalert2-react-content": "^5.0.7",

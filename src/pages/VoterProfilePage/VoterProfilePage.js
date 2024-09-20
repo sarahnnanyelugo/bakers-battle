@@ -5,6 +5,7 @@ import {AuthUserContext} from "../../services/AuthUserContext";
 import {ContestantsProfile} from "../../components/ContestantsProfile/ContestantsProfile";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
+import {GetPubConfig, GetStages} from "../../utils/utils";
 
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
 export const VoterProfilePage = () => {
@@ -12,7 +13,11 @@ export const VoterProfilePage = () => {
     const data = authContestant?.user;
     const [showProfile, setShoProfile] = useState(true)
     const navigate = useNavigate(); // Use useNavigate for redirection
+
+
+
     // Fetch the latest user profile when the component mounts
+
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
@@ -49,40 +54,6 @@ export const VoterProfilePage = () => {
         }
     }, [showProfile]);
 
-    // Logout function
-    const handleLogout = async () => {
-        try {
-            const token = authContestant?.token;
-
-            if (token) {
-                // Optionally, make an API call to invalidate the token (if applicable)
-                await axios.post(
-                    `${baseUrl}/api/logout`,
-                    {}, // No body needed for logout
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
-            }
-
-            // Clear user from context and localStorage
-
-            // Redirect to the login page or homepage after logout
-            navigate("/login");
-        } catch (error) {
-            console.error("Error during logout:", error);
-        }
-        finally {
-            setAuthContestant(null);
-            localStorage.removeItem("contestant");
-            localStorage.removeItem("token");
-            localStorage.removeItem("pk");
-        }
-    };
-
-
     if (!authContestant)
         return (
             <div className={'success-page-div col-md-4 offset-md-4'}>
@@ -104,12 +75,8 @@ export const VoterProfilePage = () => {
                 show={showProfile}
                 aria-labelledby="example-modal-sizes-title-lg"
             >
-                <Modal.Header closeButton onClick={() => {
-                    setShoProfile(false);
-                    setTimeout(() => {
-                        navigate('/')
-                    }, 200)
-                }}></Modal.Header>
+                <Modal.Header closeButton onClick={() => {setShoProfile(false);
+                    setTimeout(() => {navigate('/')}, 200)}}></Modal.Header>
                 <Modal.Body className="profile">
                     {" "}
                     <div className="form ">
@@ -121,6 +88,9 @@ export const VoterProfilePage = () => {
                                         Baking Contest <br/>
                                         Applicants Profile
                                     </h2>
+                                    <div className="col-md-11">
+                                        <h1 className={"alert alert-warning"}>{data?.name}</h1>
+                                    </div>
                                 </div>
                                 <div className="col-12 col-md-3">
                                     <img src={data?.dp} width="100%"/>
@@ -168,9 +138,10 @@ export const VoterProfilePage = () => {
                                     <div className="col">
                                         <h6>Nomination Status</h6>
                                         <p>
-                                            {!data?.nomination && <button className="pend-btn"> Pending </button>}
-                                            {data?.nomination &&
-                                            <button className="aprove-btn"> {data?.nomination?.stage?.name} </button>}
+                                            {data?.approval_status=='pending' && <button className="pend-btn"> Pending </button>}
+                                            {data?.approval_status=='declined' && <button className="decline-btn"> Declined </button>}
+                                            {!data?.nomination && data?.approval_status=='approved' && <button className="pend-btn"> Eliminated </button>}
+                                            {data?.nomination && <span className="btn aprove-btn"> {data?.nomination?.stage?.name} </span>}
                                         </p>
                                     </div>
                                 </>}
@@ -189,9 +160,8 @@ export const VoterProfilePage = () => {
 
                         <hr/>
                         <center>
-                            {/*<button className="aprove-btn"> Nominated </button>*/}
-                            <button onClick={handleLogout} className="decline-btn"> Logout</button>
-                            {/*<button className="decline-btn"> Declined </button>*/}
+                            <Link to={'/'} className="aprove-btn"> Home</Link>
+                            <Link to={'/logout'} className="decline-btn"> Logout</Link>
                         </center>
                     </div>
                 </Modal.Body>

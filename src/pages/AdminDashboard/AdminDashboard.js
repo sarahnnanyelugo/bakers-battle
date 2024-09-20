@@ -24,6 +24,7 @@ const customLabels = [
     "Instagram",
     "Twitter",
     "LinkedIn",
+    "Youtube",
     "Others",
 ];
 export default function AdminDashboard() {
@@ -48,6 +49,7 @@ export default function AdminDashboard() {
         Instagram:0,
         Twitter:0,
         LinkedIn:0,
+        Youtube:0,
         Others:0,
     })
     const [customData,setCustomData]=useState([0, 0, 0, 0, 0, 0])
@@ -77,6 +79,7 @@ export default function AdminDashboard() {
                     Instagram:data.Instagram,
                     Twitter:data.Twitter,
                     LinkedIn:data.LinkedIn,
+                    Youtube:data.Youtube,
                     Others:data.Others,
                 });
                 // Update customData state
@@ -86,6 +89,7 @@ export default function AdminDashboard() {
                     data.Instagram,
                     data.Twitter,
                     data.LinkedIn,
+                    data.Youtube,
                     data.Others
                 ]);
             } else {
@@ -97,18 +101,16 @@ export default function AdminDashboard() {
             if (error.response && error.response.status === 401) {
                 // If unauthorized, log the admin out
                 setAuthAdmin(null);
-                localStorage.removeItem('authAdmin');
                 navigate('/admin');
             }
         }
     };
 
     useEffect(() => {
-        if (!authAdmin || !authAdmin.token) {
+        if (!authAdmin?.token) {
             navigate('/admin');
         } else {
             // Implement API call for the summary data
-
             fetchSummary().then(r => {}); // Call the function to fetch data
         }
     }, [authAdmin, navigate, setAuthAdmin]);
@@ -152,7 +154,7 @@ export default function AdminDashboard() {
                                                 {" "}
                                                 <CountUp
                                                     start={0}
-                                                    end={summary?.totalRegistered}
+                                                    end={summary?.totalRegistered||0}
                                                     duration={2}
                                                     decimal=""
                                                     prefix=" "
@@ -160,7 +162,7 @@ export default function AdminDashboard() {
                                                     enableScrollSpy={true}
                                                 />
                                             </h1>
-                                            <ProgressBar number={summary?.totalRegisteredPerc} max={100} color="#508FF4"/>
+                                            <ProgressBar number={summary?.totalRegisteredPerc||0} max={100} color="#508FF4"/>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +174,7 @@ export default function AdminDashboard() {
                                             {" "}
                                             <CountUp
                                                 start={0}
-                                                end={summary?.totalApproved}
+                                                end={summary?.totalApproved||0}
                                                 duration={2}
                                                 decimal=""
                                                 prefix=" "
@@ -180,7 +182,7 @@ export default function AdminDashboard() {
                                                 enableScrollSpy={true}
                                             />
                                         </h1>
-                                        <ProgressBar number={summary?.totalApprovedPerc} max={100} color="#008000"/>
+                                        <ProgressBar number={summary?.totalApprovedPerc||0} max={100} color="#008000"/>
                                     </div>
                                 </div>
                                 {" "}
@@ -191,7 +193,7 @@ export default function AdminDashboard() {
                                             {" "}
                                             <CountUp
                                                 start={0}
-                                                end={summary?.totalDeclined}
+                                                end={summary?.totalDeclined||0}
                                                 duration={2}
                                                 decimal=""
                                                 prefix=" "
@@ -199,7 +201,7 @@ export default function AdminDashboard() {
                                                 enableScrollSpy={true}
                                             />
                                         </h1>
-                                        <ProgressBar number={summary?.totalDeclinedPerc} max={200} color="#900d0d"/>
+                                        <ProgressBar number={summary?.totalDeclinedPerc||0} max={200} color="#900d0d"/>
                                     </div>
                                 </div>
                                 {" "}
@@ -210,7 +212,7 @@ export default function AdminDashboard() {
                                             {" "}
                                             <CountUp
                                                 start={0}
-                                                end={summary?.totalPending}
+                                                end={summary?.totalPending||0}
                                                 duration={2}
                                                 decimal=""
                                                 prefix=" "
@@ -218,7 +220,7 @@ export default function AdminDashboard() {
                                                 enableScrollSpy={true}
                                             />
                                         </h1>
-                                        <ProgressBar number={summary?.totalPendingPerc} max={100} color="#F7BE7F"/>
+                                        <ProgressBar number={summary?.totalPendingPerc||0} max={100} color="#F7BE7F"/>
                                     </div>
                                 </div>
                             </div>
@@ -235,17 +237,12 @@ export default function AdminDashboard() {
                                     <div className="col-md-12  reg-chart">
                                         <h6>Recent Activities</h6>
                                         <hr/>
-                                        {" "}
-                                        {/*{state.list.map((data, index) => (*/}
-                                        {/*    <RecentActivity data={data}/>*/}
-                                        {/*))}*/}
                                         <AuditTrail/>
                                     </div>
                                 </div>
                             </div>
                             <div className="app-table">
-                                {/*<AppTable data={schools} initialDisplayCount={4}/>*/}
-                                <AppTable/>
+                                <AppTable callback={fetchSummary}/>
                             </div>
                         </div>
                     </div>

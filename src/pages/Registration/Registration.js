@@ -1,10 +1,10 @@
+import React, {useRef, useCallback, useState, useEffect} from "react";
 import "./registration.scss";
 import Img from "../../assets/images/contest.png";
 import {Link} from "react-router-dom";
 import {FileUpload} from "../../components/FileUpload/FileUpload";
 import Photo from "../../assets/images/photo.png";
 import Sample from "../../assets/images/sample.png";
-import React, {useRef, useCallback, useState, useEffect} from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Flier from "../../components/FlierModal/FlierModal";
 import axios from "axios";  // Axios for HTTP requests
@@ -15,30 +15,30 @@ import {formatCurrency, GetPubConfig} from "../../utils/utils";  // Import Sweet
 export const Registration = (effect, deps) => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [showPassword, setShowPassword] = useState(false)
+    /*    const [formData, setFormData] = useState({
+            name: "",
+            gender: "Male",
+            email: "",
+            phone: "",
+            password: "",
+            password_confirmation: "",
+            address: "",
+            social_handle: "",
+            dp: null,
+            heard_about_us_from: "Instagram",
+        });*/
     const [formData, setFormData] = useState({
-        name: "",
-        gender: "",
-        email: "",
-        phone: "",
-        password: "",
-        password_confirmation: "",
-        address: "",
-        social_handle: "",
+        name: "Sunrise Nnanyelugo",
+        gender: "Female",
+        email: "sunrise@gmail.com",
+        phone: "08160480692",
+        password: "password",
+        password_confirmation: "password",
+        address: "Golden Pearls' Estate, Rd 4 House 11",
+        social_handle: "https://instagram.com/sunrise",
         dp: null,
         heard_about_us_from: "Instagram",
     });
-    // const [formData, setFormData] = useState({
-    //     name: "Paul Allen",
-    //     gender: "Male",
-    //     email: "paulallen@gmail.com",
-    //     phone: "08068122579",
-    //     password: "",
-    //     password_confirmation: "",
-    //     address: "Golden Pearls' Estate, Rd 4 House 11",
-    //     social_handle: "https://instagram.com/hexxondiv",
-    //     dp: null,
-    //     heard_about_us_from: "Instagram",
-    // });
     const [config, setConfig] = useState(null)
 
     const [errors, setErrors] = useState({});
@@ -58,17 +58,14 @@ export const Registration = (effect, deps) => {
             }
         };
 
-        fetchConfig(); // Call the function to fetch the config
-    }, []); // Empty dependency array ensures this runs once on mount
+        fetchConfig().then(r => {
+        }); // Call the function to fetch the config
+    }, []);
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    useEffect(() => {
-
-        console.log(config)
-    }, [config])
 
     // Handle form input change
     const handleChange = (e) => {
@@ -162,192 +159,205 @@ export const Registration = (effect, deps) => {
               </span>
                         </div>
                     </div>
-                    <form className="col-md-12" onSubmit={handleSubmit}>
-                        <div className="d-flex">
-                            <div style={{flexGrow: 1}} className="col-12 col-md-6">
-                                {" "}
-                                <h2>
-                                    Baking Contest <br/>
-                                    Application Form
-                                </h2>
-                                <p style={{marginTop: "40px"}}>
-                                    <span>Entry Fee:</span> {formatCurrency(config?.registration_fee)} per person
-                                </p>{" "}
-                                <p>
-                                    <span>Awards:</span> Consult <Flier/>
-                                </p>
-                                <p>
-                                    <span>Registration</span>: {moment(config?.registration_ends).format('Do MMMM, YYYY')}
-                                </p>{" "}
-                                <p>
-                                    <span>Judging:</span> {config?.judging_desc||'There will be 3 Judges and winner will be posted at 3pm(WAT)'}.
-                                </p>
-                            </div>
-                            <div className="col-md-3">
-                                <img src={Img} width="100%" alt="Contest Image"/>
-                            </div>
-                        </div>
-                        <h6>Name</h6>
-                        <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
-                            <div className="col">
-                                <input
-                                    placeholder="first & last name"
-                                    name="name"  // make sure the name attribute matches your state property
-                                    value={formData?.name}
-                                    onChange={handleChange}
-                                />
-                                {errors.name && <small>{errors?.name[0]}</small>}
-                            </div>
-                            {" "}
-                            <div className="col">
-                                <select
-                                    name="gender"
-                                    value={formData?.gender}
-                                    onChange={handleChange}
-                                >
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                                <small>Select gender</small>
-                                {errors.gender && <small>{errors.gender[0]}</small>}
-                            </div>
-                        </div>
-                        {" "}
-                        <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
-                            <div className="col">
-                                <h6>Phone Number</h6>
-                                <input
-                                    placeholder="(+234) 000-000-0000"
-                                    name="phone"
-                                    type="tel"
-                                    value={formData?.phone}
-                                    onChange={handleChange}
-                                />
-                                {errors.phone && <small>{errors.phone[0]}</small>}
-                            </div>
-                            {" "}
-                            <div className="col">
-                                <h6>Email</h6>
-                                <input
-                                    placeholder="example@example.com"
-                                    name="email"
-                                    value={formData?.email}
-                                    onChange={handleChange}
-                                />
-                                {errors.email && <small>{errors.email[0]}</small>}
-                            </div>
-                        </div>
-                        <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
-                            <div className="col">
-                                <h6>Password</h6>
-                                <input
-                                    placeholder="********"
-                                    name="password"
-                                    value={formData?.password}
-                                    onChange={handleChange}
-                                    type='password'
-                                />
-                                {errors.password && <small>{errors.password[0]}</small>}
-                            </div>
-                            {" "}
-                            <div className="col">
-                                <h6>Confirm Password</h6>
-                                <input
-                                    placeholder="********"
-                                    name="password_confirmation"
-                                    value={formData?.password_confirmation}
-                                    onChange={handleChange}
-                                    type="password"
-                                />
-                                {errors.password_confirmation && <small>{errors.password_confirmation[0]}</small>}
-                            </div>
-                        </div>
-                        <h6>Address</h6>
-                        <input
-                            name="address"
-                            value={formData?.address}
-                            onChange={handleChange}
-                        />
-                        <small>Street Address</small>
-                        {errors.address && <small>{errors.address[0]}</small>}
-                        <h6>Your social media handle that best depicts your work</h6>
-                        <input
-                            style={{marginTop: "20px"}}
-                            name="social_handle"
-                            value={formData?.social_handle}
-                            onChange={handleChange}
-                        />
-                        <small>eg: facebook, instagram, youtube</small>
-                        <div
-                            className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3"
-                            style={{marginTop: "20px"}}
-                        ></div>
-                        <div className="d-md-flex file" style={{marginTop: "10px"}}>
-                            <div className="col-md-6">
-                                <center>
-                                    <div className="col-md-10">
-                                        <h5>Upload Profile Photo</h5>
-                                        <input type="file" onChange={handleFileChange}/>
-                                        {errors.dp && <small>{errors.dp[0]}</small>}
+                    {config?.registration_status ?
+                        <>
+                            <form className="col-md-12" onSubmit={handleSubmit}>
+                                <div className="d-flex">
+                                    <div style={{flexGrow: 1}} className="col-12 col-md-6">
+                                        {" "}
+                                        <h2>
+                                            Baking Contest <br/>
+                                            Application Form
+                                        </h2>
+                                        <p style={{marginTop: "40px"}}>
+                                            <span>Entry Fee:</span> {formatCurrency(config?.registration_fee)} per
+                                            person
+                                        </p>{" "}
+                                        <p>
+                                            <span>Awards:</span> Consult <Flier/>
+                                        </p>
+                                        <p>
+                                            <span>Registration</span>: {moment(config?.registration_ends).format('Do MMMM, YYYY')}
+                                        </p>{" "}
+                                        <p>
+                                            <span>Judging:</span> {config?.judging_desc || 'There will be 3 Judges and winner will be posted at 3pm (WAT)'}.
+                                        </p>
                                     </div>
-                                </center>
-
-                            </div>
-                            <div className="col-md-6">
-                                <center>
-                                    <div className="col-md-10">
-                                        <h5>How did you hear about us?</h5>
+                                    <div className="col-md-3">
+                                        <img src={Img} width="100%" alt="Contest Image"/>
+                                    </div>
+                                </div>
+                                <h6>Name</h6>
+                                <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
+                                    <div className="col">
+                                        <input
+                                            placeholder="first & last name"
+                                            name="name"  // make sure the name attribute matches your state property
+                                            value={formData?.name}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.name && <small>{errors?.name[0]}</small>}
+                                    </div>
+                                    {" "}
+                                    <div className="col">
                                         <select
-                                            name="heard_about_us_from"
-                                            value={formData?.heard_about_us_from}
+                                            name="gender"
+                                            value={formData?.gender}
                                             onChange={handleChange}
                                         >
-                                            <option value="Facebook">Facebook</option>
-                                            <option value="Instagram">Instagram</option>
-                                            <option value="Whatsapp">Whatsapp</option>
-                                            <option value="Youtube">Youtube</option>
-                                            <option value="LinkedIn">LinkedIn</option>
-                                            <option value="Friends">Friends</option>
-                                            <option value="Others">Others</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
                                         </select>
+                                        <small>Select gender</small>
+                                        {errors.gender && <small>{errors.gender[0]}</small>}
                                     </div>
-                                </center>
-                                {errors.heard_about_us_from && <small>{errors.heard_about_us_from[0]}</small>}
-                            </div>
-                        </div>
-                    </form>
-                    <Accordion defaultActiveKey="0" className="col-md-7">
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header>Rules and Terms of Agreement</Accordion.Header>
-                            <Accordion.Body>
-                                <ul className="rules">
-                                    <li>Professional bakers are not allowed to participate.</li>
-                                    <li>
-                                        Baking Contest Officials have the right to accept or reject
-                                        the entries in accordance with the rules.
-                                    </li>
-                                    <li>
-                                        The final decision of the winner will be decided by the
-                                        judges and the online voters, hence keep an opem mind. There
-                                        will be no expectations.
-                                    </li>
-                                </ul>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
+                                </div>
+                                {" "}
+                                <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
+                                    <div className="col">
+                                        <h6>Phone Number</h6>
+                                        <input
+                                            placeholder="(+234) 000-000-0000"
+                                            name="phone"
+                                            type="tel"
+                                            value={formData?.phone}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.phone && <small>{errors.phone[0]}</small>}
+                                    </div>
+                                    {" "}
+                                    <div className="col">
+                                        <h6>Email</h6>
+                                        <input
+                                            placeholder="example@example.com"
+                                            name="email"
+                                            value={formData?.email}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.email && <small>{errors.email[0]}</small>}
+                                    </div>
+                                </div>
+                                <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
+                                    <div className="col">
+                                        <h6>Password</h6>
+                                        <input
+                                            placeholder="********"
+                                            name="password"
+                                            value={formData?.password}
+                                            onChange={handleChange}
+                                            type='password'
+                                        />
+                                        {errors.password && <small>{errors.password[0]}</small>}
+                                    </div>
+                                    {" "}
+                                    <div className="col">
+                                        <h6>Confirm Password</h6>
+                                        <input
+                                            placeholder="********"
+                                            name="password_confirmation"
+                                            value={formData?.password_confirmation}
+                                            onChange={handleChange}
+                                            type="password"
+                                        />
+                                        {errors.password_confirmation &&
+                                        <small>{errors.password_confirmation[0]}</small>}
+                                    </div>
+                                </div>
+                                <h6>Address</h6>
+                                <input
+                                    name="address"
+                                    value={formData?.address}
+                                    onChange={handleChange}
+                                />
+                                <small>Street Address</small>
+                                {errors.address && <small>{errors.address[0]}</small>}
+                                <h6>Your social media handle that best depicts your work</h6>
+                                <input
+                                    style={{marginTop: "20px"}}
+                                    name="social_handle"
+                                    value={formData?.social_handle}
+                                    onChange={handleChange}
+                                />
+                                <small>eg: facebook, instagram, youtube</small>
+                                <div
+                                    className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3"
+                                    style={{marginTop: "20px"}}
+                                ></div>
+                                <div className="d-md-flex file" style={{marginTop: "10px"}}>
+                                    <div className="col-md-6">
+                                        <center>
+                                            <div className="col-md-10">
+                                                <h5>Upload Profile Photo</h5>
+                                                <input type="file" onChange={handleFileChange}/>
+                                                {errors.dp && <small>{errors.dp[0]}</small>}
+                                            </div>
+                                        </center>
 
-                    <br/>
-                    <br/>
-                    <p>
-                        By clicking on the register button below, you have agreed to the
-                        rules and terms of agreement listed above.
-                    </p>
-                    <hr/>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <center>
+                                            <div className="col-md-10">
+                                                <h5>How did you hear about us?</h5>
+                                                <select
+                                                    name="heard_about_us_from"
+                                                    value={formData?.heard_about_us_from}
+                                                    onChange={handleChange}
+                                                >
+                                                    <option value="Facebook">Facebook</option>
+                                                    <option value="Instagram">Instagram</option>
+                                                    <option value="Whatsapp">Whatsapp</option>
+                                                    <option value="Youtube">Youtube</option>
+                                                    <option value="LinkedIn">LinkedIn</option>
+                                                    <option value="Friends">Friends</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </center>
+                                        {errors.heard_about_us_from && <small>{errors.heard_about_us_from[0]}</small>}
+                                    </div>
+                                </div>
+                            </form>
+                            <Accordion defaultActiveKey="0" className="col-md-7">
+                                <Accordion.Item eventKey="0">
+                                    <Accordion.Header>Rules and Terms of Agreement</Accordion.Header>
+                                    <Accordion.Body>
+                                        <ul className="rules">
+                                            <li>Professional bakers are not allowed to participate.</li>
+                                            <li>
+                                                Baking Contest Officials have the right to accept or reject
+                                                the entries in accordance with the rules.
+                                            </li>
+                                            <li>
+                                                The final decision of the winner will be decided by the
+                                                judges and the online voters, hence keep an opem mind. There
+                                                will be no expectations.
+                                            </li>
+                                        </ul>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
+                            <br/>
+                            <br/>
+                            <p>
+                                By clicking on the register button below, you have agreed to the
+                                rules and terms of agreement listed above.
+                            </p>
+                            <hr/>
+                        </> :
+                        <>
+                            <div className="card">
+                                <div className="card-title text-center"><h4>Registration Ended</h4></div>
+                                <div className="card-body"><div className="alert alert-warning">Registration has ended for now.</div></div>
+
+                            </div>
+                        </>}
+
                     <center>
-                        <button className="button-57" role="button" onClick={handleSubmit}>
+                        {config?.registration_status===1 && <button className="button-57" role="button" onClick={handleSubmit}>
                             <span className="text">Register</span>
                             <span>Make Payment</span>
-                        </button>
+                        </button>}
+
 
                         <p className='pt-3'>Already registered as a contestant? </p>
                         <p><Link to={'/login'} className={'btn text-info'}>Login Now</Link></p>

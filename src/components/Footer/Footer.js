@@ -22,7 +22,7 @@ export const Footer = () => {
   useEffect(() => {
     if (prevUrlRef.current !== currentUrl) {
       prevUrlRef.current = currentUrl;
-      console.log(currentUrl);
+      // console.log(currentUrl);
       setTimeout(() => {
         switch (currentUrl) {
           case "/dashboard-layout/admin-dashboard":
@@ -34,7 +34,7 @@ export const Footer = () => {
             setShowNav(true);
             break;
         }
-        console.log(currentUrl, showNav);
+        // console.log(currentUrl, showNav);
       }, 10);
     }
   });
