@@ -46,7 +46,7 @@ export const ContestantsProfile = ({profile, callback,callbackParent}) => {
                 // else if (status === "declined") setDecline("Declined!");
 
                 //Todo: Open WhatsApp web in a new tab with the message
-                // window.open(whatsappUrl, "_blank");
+                window.open(whatsappUrl, "_blank");
 
                 Swal.fire({
                     title: 'Success!',
