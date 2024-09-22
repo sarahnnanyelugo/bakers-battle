@@ -15,7 +15,7 @@ import {formatCurrency, GetPubConfig} from "../../utils/utils";  // Import Sweet
 export const Registration = (effect, deps) => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [showPassword, setShowPassword] = useState(false)
-    /*    const [formData, setFormData] = useState({
+        const [formData, setFormData] = useState({
             name: "",
             gender: "Male",
             email: "",
@@ -26,19 +26,19 @@ export const Registration = (effect, deps) => {
             social_handle: "",
             dp: null,
             heard_about_us_from: "Instagram",
-        });*/
-    const [formData, setFormData] = useState({
-        name: "Sunrise Nnanyelugo",
-        gender: "Female",
-        email: "sunrise@gmail.com",
-        phone: "08160480692",
-        password: "password",
-        password_confirmation: "password",
-        address: "Golden Pearls' Estate, Rd 4 House 11",
-        social_handle: "https://instagram.com/sunrise",
-        dp: null,
-        heard_about_us_from: "Instagram",
-    });
+        });
+    // const [formData, setFormData] = useState({
+    //     name: "Sunrise Nnanyelugo",
+    //     gender: "Female",
+    //     email: "sunrise@gmail.com",
+    //     phone: "08160480692",
+    //     password: "password",
+    //     password_confirmation: "password",
+    //     address: "Golden Pearls' Estate, Rd 4 House 11",
+    //     social_handle: "https://instagram.com/sunrise",
+    //     dp: null,
+    //     heard_about_us_from: "Instagram",
+    // });
     const [config, setConfig] = useState(null)
 
     const [errors, setErrors] = useState({});
