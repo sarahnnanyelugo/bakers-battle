@@ -120,6 +120,9 @@ export const ContestantsProfile = ({profile, callback,callbackParent}) => {
     function Advance() {
         handleContestantAction('advanced'); // Pass 'approved' for approval action
     }
+    function Eliminate() {
+        handleContestantAction('eliminated'); // Pass 'approved' for approval action
+    }
     function Approve() {
         handleContestantAction('approved'); // Pass 'approved' for approval action
     }
@@ -238,6 +241,11 @@ export const ContestantsProfile = ({profile, callback,callbackParent}) => {
                                     <p className={`btn btn-sm ${setBackgroundForApprovalStatus(data.approval_status)}`}>{data.approval_status?.toUpperCase()}</p>
 
                                 </div>
+                                {data.nomination && <div className="col">
+                                    <h6>Current Stage: </h6>
+                                    <p className={`btn btn-sm btn-outline-info`}>{data.nomination?.stage_name?.toUpperCase()}</p>
+
+                                </div>}
                             </div>
                         </form>
 
@@ -256,7 +264,7 @@ export const ContestantsProfile = ({profile, callback,callbackParent}) => {
                                     <button onClick={Advance} className="btn btn-info" title="Advance Contestant to Current Stage">
                                         Advance
                                     </button>
-                                    <button className="btn btn-danger" title="Eliminate Contestant">
+                                    <button onClick={Eliminate} className="btn btn-danger" title="Eliminate Contestant">
                                         Eliminate
                                     </button>
                                 </div>}

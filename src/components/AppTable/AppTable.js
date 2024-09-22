@@ -83,6 +83,7 @@ const AppTable = ({callback}) => {
                         <th>Reg ID</th>
                         <th>Reg Date</th>
                         <th>Status</th>
+                        <th>Stage</th>
                         <th>PhoneNum</th>
                         <th>Gender</th>
                         <th colSpan={2}>Action</th>
@@ -121,6 +122,7 @@ const AppTable = ({callback}) => {
                                     </button>
                                 </div>
                             </td>
+                            <td><span className={`btn btn-sm ${item.nomination?.stage_name?'btn-outline-success':'text-danger'}`}>{!item.nomination?'None':item.nomination.stage_name}</span></td>
                             <td>{item.phone}</td>
                             <td>{item.gender}</td>
                             <td className="edit">
