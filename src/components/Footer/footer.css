@@ -1,0 +1,26 @@
+footer {
+  background: #def2fa;
+  padding-bottom: 20px;
+  margin-top: 190px;
+}
+footer img {
+  margin-top: -130px;
+}
+footer a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+}
+footer a:hover {
+  color: #dc727c;
+}
+
+.media-links li {
+  font-size: 50px !important;
+}
+
+@media screen and (max-width: 820px) {
+  .footer-paragraph {
+    text-align: center;
+  }
+}/*# sourceMappingURL=footer.css.map */

@@ -136,7 +136,7 @@ const AppTable = ({callback}) => {
                 <p>Loading...</p>
             )}
             <div className="d-flex">
-                <p style={{flexGrow: 1}}>Entry {data?.from} to {data?.to} of {data?.total} Result{data?.total>1?'s':''}</p>
+                <p style={{flexGrow: 1, fontSize:"10px"}}>Entry {data?.from} to {data?.to} of {data?.total} Result{data?.total>1?'s':''}</p>
                 <div className="d-flex">
                     <div>
                         {" "}

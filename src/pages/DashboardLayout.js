@@ -12,7 +12,7 @@ export const DashboardLayout = () => {
             <div className="col-md-2">
                 <AdminNav/>
             </div>
-            <div className="col-md-10" style={{padding: "0px 20px"}}>
+            <div className="col-md-10 dash-layout" >
                 <Routes>
                     <Route path="/admin-dashboard" element={<AdminDashboard/>}/>{" "}
                     <Route path="/voting" element={<Voting/>}/>{" "}

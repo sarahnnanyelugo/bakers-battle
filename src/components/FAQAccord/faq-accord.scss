@@ -1,5 +1,8 @@
 .accord-faq {
-  margin-top: 100px;
+  // margin-top: 100px;
+  @media screen and (max-width:820px){
+    margin-top:100px;
+  }
   div + div {
     clear: both;
   }

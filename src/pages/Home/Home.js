@@ -84,11 +84,11 @@ export const Home = () => {
         style={{ marginTop: "70px" }}
       >
         <div className="d-md-flex">
-          <div className="col-md-6">
+          <div className="col-md-6 home-flier">
             {" "}
             <img className="img  img-adj" src={Flier} alt="Scholar" />
           </div>{" "}
-          <div className="col-md-6 accord">
+          <div className="col-md-6 ">
             <FAQAccord />
           </div>
         </div>

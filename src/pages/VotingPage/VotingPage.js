@@ -74,7 +74,7 @@ function VotingPage() {
       <center>
         {" "}
         <Link to={"/"}>
-          <img className="col-md-1" src={Logo} alt="Scholar" />
+          <img className="col-md-1 col-8" src={Logo} alt="Scholar" />
         </Link>
       </center>
       <center>
@@ -153,7 +153,7 @@ function VotingPage() {
           </div>: <></>
           }
         </div>
-        <div className="chart-container col-md-8" style={{ marginTop: 0 }}>
+        <div className="chart-container col-md-8" >
 
           {contestants?.length>0 && <ContestChart labels={sortedLabels} dataset={sortedVotes} />}
         </div>

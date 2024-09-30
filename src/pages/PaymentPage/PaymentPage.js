@@ -50,7 +50,7 @@ export const PaymentPage = () => {
                         <div className="payment-form">
                             <img src={Switch} width="100%" alt="payment logo"/>
                         </div>
-                        <center>
+                        <center style={{ position:"relative", zIndex:"1000" }}>
                             {contestant && <PaystackHook target={''}/>}
                             {!contestant && voter && transaction && <PaystackWalletHook target={''}/>}
                         </center>

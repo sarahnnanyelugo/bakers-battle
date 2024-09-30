@@ -118,11 +118,11 @@ export default function AdminDashboard() {
         <>
             <div className="col-md-12 dash-container">
                 <div className="admin-top d-flex">
-                    <div>
+                    <div className="col-md-3">
                         {" "}
-                        <input placeholder="search here" style={{flexGrow: 1}}/>
+                        <input placeholder="search here" />
                     </div>
-                    <div className="offset-md-9">
+                    <div className="offset-md-7 offset-3">
                         <DropdownButton
                             id="dropdown-basic-button"
                             title={<FaBell style={{color: "#1E3D73", fontSize: "20px"}}/>}
@@ -142,7 +142,7 @@ export default function AdminDashboard() {
                 </div>
                 <center>
                     {" "}
-                    <div style={{padding: "20px"}}>
+                    <div className="dash-inner">
                         {" "}
                         <div className="dash-div col-md-12">
                             <div className="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">

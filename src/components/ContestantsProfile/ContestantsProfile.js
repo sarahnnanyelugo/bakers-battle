@@ -186,14 +186,14 @@ export const ContestantsProfile = ({profile, callback,callbackParent}) => {
                     <div className="form ">
                         <form className="col-md-12">
                             <div className="d-flex">
-                                <div style={{flexGrow: 1}} className="col-12 col-md-6">
+                                <div style={{flexGrow: 1}} className="col-5 col-md-6">
                                     {" "}
                                     <h2>
                                         Baking Contest <br/>
                                         Applicants Profile
                                     </h2>
                                 </div>
-                                <div className="col-md-3">
+                                <div className="col-md-3 col-5">
                                     <img src={data.dp} width="100%"/>
                                 </div>
                             </div>

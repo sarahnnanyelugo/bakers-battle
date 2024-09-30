@@ -4,7 +4,7 @@ import "./payment-page.scss";
 import { PaystackButton } from 'react-paystack';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-
+import "./paystack-hook.scss"
 const formatAmount = (amount) => {
     return parseFloat(amount) * 100; // Convert amount to kobo (assuming Naira is the currency)
 };

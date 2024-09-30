@@ -21,6 +21,7 @@
 }
 .chart-container {
   height: 600px;
+  @media screen and (max-width:820px){height:fit-content; margin-top:60px;overflow:hidden;}
 }
 .wallet-btn {
   color: #fff;

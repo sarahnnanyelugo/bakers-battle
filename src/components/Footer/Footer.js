@@ -41,11 +41,11 @@ export const Footer = () => {
   return (
     <footer className={`  ${showNav ? "" : "hide"}`}>
       <center>
-        <div className="col-md-3">
-          <img className="img2" src={Logo} alt="Scholar" width="75%" />
+        <div className="col-md-3 col-8">
+         <Link to={"/"}> <img className="img2" src={Logo} alt="Scholar" width="75%" /></Link>
         </div>
       </center>{" "}
-      <div className="d-md-flex col-md-10 offset-md-1 mobile-padding">
+      <div className="d-md-flex col-md-10 offset-md-1 mobile-padding footer-paragraph">
         <div className="col-md-5">
           <h4>About Us</h4>
           <p>
