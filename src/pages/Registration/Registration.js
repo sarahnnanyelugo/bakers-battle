@@ -229,11 +229,12 @@ export const Registration = (effect, deps) => {
                                     <div className="col">
                                         <h6>Email</h6>
                                         <input
-                                            placeholder="example@example.com"
+                                            placeholder=""
                                             name="email"
                                             value={formData?.email}
                                             onChange={handleChange}
                                         />
+                                        <small>example@example.com</small>
                                         {errors.email && <small>{errors.email[0]}</small>}
                                     </div>
                                 </div>
@@ -328,14 +329,60 @@ export const Registration = (effect, deps) => {
                                                 the entries in accordance with the rules.
                                             </li>
                                             <li>
+                    Every contestant must be above 18 years of age to qualify
+                  </li>
+                  <li>
+                    Any contestant with health issues that discourages long stay
+                    in the kitchen does not qualify to participate.
+                  </li>
+                  <li>
+                    The possession or consumption of narcotics, alcohol, or
+                    other illegal substances is strictly prohibited at the
+                    event. Participants caught with such substances will be
+                    immediately handed over to law enforcement authorities.
+                  </li>
+                  <li>
+                    Participants must comply with all health and safety
+                    regulations, including any specific guidelines related to
+                    public health concerns.
+                  </li>
+                  <li>
                                                 The final decision of the winner will be decided by the
-                                                judges and the online voters, hence keep an opem mind. There
+                                                judges and the online voters, hence keep an open mind. There
                                                 will be no expectations.
                                             </li>
                                         </ul>
+                <p>I, agree with the following statements:</p>
+                <ul className="rules">
+                  <li>
+                    <input type="checkbox" /> I am the participant of the
+                    contest or the parent / guardian of the participant
+                  </li>
+                  <li>The decision to participate was taken with free will.</li>
+                  <li>
+                    {" "}
+                    <input type="checkbox" />I understand, appreciate and
+                    acknowledge that property damage and injuries are common on
+                    such event. I participate in this voluntarily and with full
+                    knowledge of the inherent risks.
+                  </li>
+                  <li>
+                    {" "}
+                    <input type="checkbox" />I participate at my own risk. The
+                    event organizers will not be held responsible for any
+                    incidents, accidents, injuries, theft, loss, or damage that
+                    may occur during or after the event.
+                  </li>
+                  <li>
+                    I consent to being photographed, filmed, or recorded. These
+                    images and recordings may be used for promotional,
+                    marketing, or media purposes without compensation.
+                  </li>
+                </ul>
                                     </Accordion.Body>
                                 </Accordion.Item>
                             </Accordion>
+
                             <br/>
                             <br/>
                             <p>

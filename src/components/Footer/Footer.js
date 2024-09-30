@@ -49,12 +49,11 @@ export const Footer = () => {
         <div className="col-md-5">
           <h4>About Us</h4>
           <p>
-            Kitchen Disaster's Best Baker Contest was launched as a way to
-            gather people from all over the city of Lagos to celebrate the
-            diverse and exacting bakers who call Lagos their home. This is an
-            ample oppotunity for bakers in the city to compete with and learn
-            from each other on a local stage ... until now. Come see why we
-            think Kitchen Disaster's bakers are the best!
+            Kitchen Disaster's Bakers Battle Contest was launched as a way to
+            gather all food and fun lovers to experience baking creativity at
+            it's peak. This is an ample opportunity for bakers to compete and
+            learn from each other on the battle field. Register to participate
+            and flex your culinary know-how.
           </p>
         </div>
         <div className="col-md-2 offset-md-4">
@@ -63,17 +62,17 @@ export const Footer = () => {
             <li>
               <BsFillPatchQuestionFill style={{ fontSize: "22px" }} />
 
-              &nbsp;<Link to={"/faq"}>FAQs</Link>
+              <Link to={"/faq"}>FAQs</Link>
             </li>{" "}
             <li>
               <FaPhoneAlt style={{ fontSize: "22px" }} />
 
-              &nbsp;<Link to={"/contact"}>Contact us</Link>
+              <Link to={"/contact"}>Contact us</Link>
             </li>{" "}
             <li>
               <GiArchiveRegister style={{ fontSize: "22px" }} />
 
-              &nbsp;<Link to={"/registration"}>Register</Link>
+              <Link to={"/registration"}>Register</Link>
             </li>{" "}
           </ul>
         </div>
