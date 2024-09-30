@@ -31,7 +31,7 @@ export const FAQAccord = () => {
                 </summary>
                 <p class="faq-content">
                   The registration cost's only{" "}
-                  <b>Five Thousand Naira (&#8358;5000)</b>
+                  <b>Five Thousand Naira (&#8358;3000)</b>
                 </p>
               </details>
             </div>

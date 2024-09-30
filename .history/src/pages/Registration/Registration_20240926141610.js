@@ -157,17 +157,7 @@ export const Registration = () => {
                     Any contestant with health issues that discourages long stay
                     in the kitchen does not qualify to participate.
                   </li>
-                  <li>
-                    The possession or consumption of narcotics, alcohol, or
-                    other illegal substances is strictly prohibited at the
-                    event. Participants caught with such substances will be
-                    immediately handed over to law enforcement authorities.
-                  </li>
-                  <li>
-                    Participants must comply with all health and safety
-                    regulations, including any specific guidelines related to
-                    public health concerns.
-                  </li>
+
                   <li>
                     The final decision of the winner will be decided by the
                     judges and the online voters, hence keep an open mind. There
@@ -190,8 +180,8 @@ export const Registration = () => {
                   </li>
                   <li>
                     {" "}
-                    <input type="checkbox" />I participate at my own risk. The
-                    event organizers will not be held responsible for any
+                    <input type="checkbox" />I participate at their own risk.
+                    The event organizers will not be held responsible for any
                     incidents, accidents, injuries, theft, loss, or damage that
                     may occur during or after the event.
                   </li>

@@ -51,9 +51,9 @@ export const Footer = () => {
           <p>
             Kitchen Disaster's Bakers Battle Contest was launched as a way to
             gather all food and fun lovers to experience baking creativity at
-            it's peak. This is an ample opportunity for bakers to compete and
-            learn from each other on the battle field. Register to participate
-            and flex your culinary know-how.
+            it's peak. This is an ample oppotunity for bakers in the city to
+            compete with and learn from each other on a local stage ... until
+            now. Come see why we think Kitchen Disaster's bakers are the best!
           </p>
         </div>
         <div className="col-md-2 offset-md-4">

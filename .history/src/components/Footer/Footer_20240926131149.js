@@ -49,12 +49,11 @@ export const Footer = () => {
         <div className="col-md-5">
           <h4>About Us</h4>
           <p>
-            Kitchen Disaster's Best Baker Contest was launched as a way to
-            gather people from all over the city of Lagos to celebrate the
-            diverse and exacting bakers who call Lagos their home. This is an
-            ample oppotunity for bakers in the city to compete with and learn
-            from each other on a local stage ... until now. Come see why we
-            think Kitchen Disaster's bakers are the best!
+            Kitchen Disaster's Bakers Battle Contest was launched as a way to
+            gather all food and fun lovers to experience baking creativity at
+            it's peak. This is an ample opportunity for bakers in the city to
+            compete with and learn from each other on a local stage ... until
+            now. Come see why we think Kitchen Disaster's bakers are the best!
           </p>
         </div>
         <div className="col-md-2 offset-md-4">

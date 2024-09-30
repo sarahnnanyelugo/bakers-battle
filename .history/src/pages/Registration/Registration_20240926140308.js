@@ -154,20 +154,10 @@ export const Registration = () => {
                     Every contestant must be above 18 years of age to qualify
                   </li>
                   <li>
-                    Any contestant with health issues that discourages long stay
-                    in the kitchen does not qualify to participate.
+                    Any contestant with a health issue that discourages long
+                    stay in the kitchen does not qualify to participate.
                   </li>
-                  <li>
-                    The possession or consumption of narcotics, alcohol, or
-                    other illegal substances is strictly prohibited at the
-                    event. Participants caught with such substances will be
-                    immediately handed over to law enforcement authorities.
-                  </li>
-                  <li>
-                    Participants must comply with all health and safety
-                    regulations, including any specific guidelines related to
-                    public health concerns.
-                  </li>
+
                   <li>
                     The final decision of the winner will be decided by the
                     judges and the online voters, hence keep an open mind. There
@@ -190,15 +180,16 @@ export const Registration = () => {
                   </li>
                   <li>
                     {" "}
-                    <input type="checkbox" />I participate at my own risk. The
-                    event organizers will not be held responsible for any
-                    incidents, accidents, injuries, theft, loss, or damage that
-                    may occur during or after the event.
+                    <input type="checkbox" />I hereby release any and all rights
+                    that either my assigns or I may have against the contest
+                    organization, the supervisors, hosts, agents or employees
+                    arising from my participation, including but not limited to
+                    property damage and injuries.
                   </li>
                   <li>
-                    I consent to being photographed, filmed, or recorded. These
-                    images and recordings may be used for promotional,
-                    marketing, or media purposes without compensation.
+                    By registering, I consent that Kitchen Disaster may use my
+                    provided pictures and videos for advert and or promotional
+                    purposes without compensation or permission.{" "}
                   </li>
                 </ul>
               </Accordion.Body>

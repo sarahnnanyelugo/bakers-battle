@@ -88,7 +88,10 @@ export const Home = () => {
             {" "}
             <img className="img  img-adj" src={Flier} alt="Scholar" />
           </div>{" "}
-          <div className="col-md-6 accord">
+          <div className="col-md-5 offset-md-1 accord">
+            {" "}
+            <h3>The Categories</h3>
+            <p>There are three main categories to this competition</p>
             <FAQAccord />
           </div>
         </div>

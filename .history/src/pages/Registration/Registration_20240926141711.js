@@ -160,13 +160,8 @@ export const Registration = () => {
                   <li>
                     The possession or consumption of narcotics, alcohol, or
                     other illegal substances is strictly prohibited at the
-                    event. Participants caught with such substances will be
+                    event. Attendees caught with such substances will be
                     immediately handed over to law enforcement authorities.
-                  </li>
-                  <li>
-                    Participants must comply with all health and safety
-                    regulations, including any specific guidelines related to
-                    public health concerns.
                   </li>
                   <li>
                     The final decision of the winner will be decided by the

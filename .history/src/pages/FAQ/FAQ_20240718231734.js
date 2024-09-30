@@ -7,15 +7,12 @@ export const FAQ = () => {
     <>
       <div className="faq-container col-md-12">
         {" "}
-        <div className="faq-div col-md-12" style={{ paddingTop: "20%" }}>
+        <div className="faq-div" style={{ paddingTop: "20%" }}>
           <div className="offset-md-1 heading">
             <h1>FAQs</h1>
           </div>
         </div>
-        <div className="col-md-6 offset-md-3">
-          {" "}
-          <FAQAccord />
-        </div>
+        <FAQAccord />
       </div>
     </>
   );

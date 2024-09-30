@@ -30,41 +30,35 @@ export const Home = () => {
             <br />
             <h3>The Contest</h3>
             <p>
-              Join us on Saturday, July 20, 2024, at 2 p.m., in the Auditorium
-              at the Mainland to discover whose bakes have won! The event will
+              Join us on November 2024 at a renowed baking empire in Lagos State
+              to discover who is who on the baking battle field. The event will
               be free and open to the public.
             </p>
             <p>
-              Attendance at the event is free, and passes for tastings after the
-              winners are announced.
+              At the end of the intense competition, there shall emerge three
+              winners with prices for each. and of course, consolation rewards
+              for all participants.
             </p>
+            <Link to={"/about"}>
+              <button class="button-48" role="button">
+                <span class="text">Read more</span>
+              </button>
+            </Link>
             <p>
-              There are three categories in the competition and the winners of
-              each category will be awarded first, second, and third prizes in
-              their category. Any baker who enters two or more categories will
-              be entered in the Kitchen Disaster’s Best Baker Contest and the
-              winner will be chosen based on their overall scores. As an added
-              treat, attendees can sign up to taste the entries in each
-              category.
-              <Link to={"/about"}>
-                <button class="button-48" role="button">
-                  <span class="text">Read more</span>
-                </button>
-              </Link>
-            </p>
-            <p>
-              Kitchen Disaster's Best Baker Contest was launched as a way to
-              gather people from all over the city of Lagos to celebrate the
-              diverse and exacting bakers who call Lagos their home.
+              <strong> Kitchen Disaster's Bakers Battle Contest</strong> was
+              launched as a way to gather people from all walks of life to
+              celebrate the diverse and exacting bakers who call Nigeria their
+              home.
             </p>{" "}
             <p>
               For rules, view
               <Link class="button-48" role="button" to={"/registration"}>
                 <span class="text">registration and rules</span>
               </Link>
-              Questions? Comments? Email us at{" "}
-              <Link class="button-48" role="button">
-                <span class="text">bakersbattle@gmail.com</span>
+              <br />
+              For further enquiries
+              <Link class="" role="button" to={"/contact-us"}>
+                contact us
               </Link>{" "}
             </p>
             <Link to={"/registration"}>
@@ -257,7 +251,13 @@ export const Home = () => {
               </center>
             </div>
           </Link>{" "}
-          <div className="col">
+          <Link
+            to={
+              "https://www.instagram.com/elixirvictoria?igsh=MXZtbnU2NWc0cGZnNA=="
+            }
+            target="_blank"
+            className="col"
+          >
             <div className="sponsors">
               {" "}
               <center>
@@ -266,11 +266,11 @@ export const Home = () => {
                   className="img  offset-md-"
                   src={Sponsor5}
                   alt="Scholar"
-                  width="100%"
+                  width="80%"
                 />
               </center>
             </div>
-          </div>{" "}
+          </Link>{" "}
           <div className="col">
             <div className="sponsors">
               {" "}

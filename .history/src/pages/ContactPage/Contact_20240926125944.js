@@ -69,14 +69,14 @@ export const Contact = () => {
             <h4>
               <IoMail className="media-icons" />
 
-              <a href="mailto:thesoulfoodkitchenshow@gmail.com" target="_blank">
+              <a href="mailto:sarahnnanyelugo@gmail.com" target="_blank">
                 Email
-              </a>
+              </Link>
             </h4>{" "}
             <h4>
               <FaPhone className="media-icons" />
 
-              <a href="tel:09079843941">09079843941</a>
+              <Link to={"kitchen disaster"}>09079843941</Link>
             </h4>
           </div>
           <div className="col-md-6 accord">

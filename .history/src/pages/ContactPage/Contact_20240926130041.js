@@ -69,7 +69,7 @@ export const Contact = () => {
             <h4>
               <IoMail className="media-icons" />
 
-              <a href="mailto:thesoulfoodkitchenshow@gmail.com" target="_blank">
+              <a href="mailto:sarahnnanyelugo@gmail.com" target="_blank">
                 Email
               </a>
             </h4>{" "}
