@@ -1,6 +1,6 @@
 import "./profile.scss";
 import {Link, useNavigate} from "react-router-dom";
-import {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Modal from "react-bootstrap/Modal";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -212,7 +212,7 @@ export const ContestantsProfile = ({profile, callback,callbackParent}) => {
                             <div className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
                                 <div className="col">
                                     <h6>Phone Number</h6>
-                                    <p>{data.phone}</p>
+                                    <a href={`https://wa.me/${data.phone}`} target={"_blank"}>{data.phone}</a>
                                 </div>
                                 {" "}
                                 <div className="col">

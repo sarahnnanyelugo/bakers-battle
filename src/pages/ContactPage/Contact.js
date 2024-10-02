@@ -76,7 +76,7 @@ export const Contact = () => {
             <h4>
               <FaPhone className="media-icons" />
 
-              <a href="https://wa.me/+2349079843941">09079843941</a>
+              <a href="https://wa.me/+2349079843941" target={"_blank"}>09079843941</a>
             </h4>
           </div>
           <div className="col-md-6 accord">

@@ -82,7 +82,8 @@ const AppTable = ({callback}) => {
                         <th>Name</th>
                         <th>Reg ID</th>
                         <th>Reg Date</th>
-                        <th>Status</th>
+                        <th>PaymentStatus</th>
+                        <th>ApplicationStatus</th>
                         <th>Stage</th>
                         <th>PhoneNum</th>
                         <th>Gender</th>
@@ -106,6 +107,22 @@ const AppTable = ({callback}) => {
                             </td>
                             <td>{item.reference}</td>
                             <td>{moment(item.created_at).format('MMMM Do YYYY, h:mm:ss a')}</td> {/* Format date */}
+                            <td>
+                                <div>
+                                    <button
+                                        className="table-btn"
+                                        style={{
+                                            background: item.status=='success'?"#ECFDF3":(item.status==null?"#e8c59f":"#f4bcbc"),
+                                            color: item.status=='success'?"#027A48":(item.status==null?"#ba6204":"#900d0d"),
+                                            padding: "0px 25px",
+                                            width: "fit-content",
+                                            height: "25px",
+                                        }}
+                                    >
+                                        {(item.status||'pending').toUpperCase()}
+                                    </button>
+                                </div>
+                            </td>
                             <td>
                                 <div>
                                     <button
