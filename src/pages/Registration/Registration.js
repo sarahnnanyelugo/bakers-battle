@@ -81,6 +81,25 @@ export const Registration = (effect, deps) => {
         }
     };
 
+    // Function to handle phone input changes
+const handlePhoneChange = (e) => {
+    const phoneValue = e.target.value;
+
+    // If the phone number starts with a 0 (likely for local numbers), replace it with +234
+    if (phoneValue.startsWith("0")) {
+        setFormData({
+            ...formData,
+            phone: "+234" + phoneValue.slice(1), // Replace the leading 0 with +234
+        });
+    } else {
+        // Allow phone numbers with other country codes
+        setFormData({
+            ...formData,
+            phone: phoneValue, // Allow whatever the user types
+        });
+    }
+};
+
     // Handle file upload for profile photo (dp)
     const handleFileChange = (e) => {
         setFormData((prev) => ({
@@ -88,16 +107,24 @@ export const Registration = (effect, deps) => {
             dp: e.target.files[0], // Store the file object
         }));
     };
-
+// Function to format phone number with country code
+const formatPhoneNumber = (phone) => {
+    if (phone && phone.startsWith("0")) {
+        return "+234" + phone.slice(1);
+    }
+    return phone; // If phone doesn't start with 0, return it as is
+};
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors({})
+        // Format the phone number with country code
+    const formattedPhone = formatPhoneNumber(formData?.phone);
         const data = new FormData(); // FormData object for handling file uploads
         data.append("name", formData?.name);
         data.append("gender", formData?.gender);
         data.append("email", formData?.email);
-        data.append("phone", formData?.phone);
+        data.append("phone", formattedPhone); // Use formatted phone
         data.append("password", formData?.password);
         data.append("password_confirmation", formData?.password_confirmation);
         data.append("address", formData?.address);
@@ -217,13 +244,14 @@ export const Registration = (effect, deps) => {
                                     <div className="col">
                                         <h6>Phone Number</h6>
                                         <input
-                                            placeholder="(+234) 000-000-0000"
+                                            placeholder="+234 000 000 0000"
                                             name="phone"
                                             type="tel"
                                             value={formData?.phone}
-                                            onChange={handleChange}
+                                            onChange={handlePhoneChange}
                                         />
                                         {errors.phone && <small>{errors.phone[0]}</small>}
+                                        <small>Preferably Whatsapp Phone number</small>
                                     </div>
                                     {" "}
                                     <div className="col">

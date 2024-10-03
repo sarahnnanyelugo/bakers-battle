@@ -5,13 +5,9 @@ import { ScreenSlide } from "../../components/ScreenSlide/ScreenSlide";
 import "./home.scss";
 import Accordion from "react-bootstrap/Accordion";
 import Flier from "../../assets/images/flier1.jpeg";
-import Sponsor1 from "../../assets/images/sponsor1.jpeg";
-import Sponsor2 from "../../assets/images/sponsor2.png";
-import Sponsor3 from "../../assets/images/sponsor3.png";
-import Sponsor4 from "../../assets/images/hexxondiv-tech-hub.jpeg";
-import Sponsor5 from "../../assets/images/elixir.jpeg";
-import Sponsor6 from "../../assets/images/sponsor6.png";
+
 import { FAQAccord } from "../../components/FAQAccord/FAQAccord";
+import { OurSponsors } from "../../components/OurSponsors/OurSponsors";
 
 export const Home = () => {
   return (
@@ -98,110 +94,7 @@ export const Home = () => {
         <center>
           <h2>Our Sponsors</h2>
         </center>
-        <div className="col-md-10 offset-md-1  d-md-flex row row-cols-2 row-cols-lg-6 g-2 g-lg-3 mobile-padding">
-          <Link
-            className="col"
-            target="_blank"
-            to={
-              "https://www.instagram.com/straightstreetbakery?igsh=MWdvdGg4eWx0eWYycA=="
-            }
-          >
-            <div className="sponsors">
-              <center>
-                {" "}
-                <img
-                  className="img  offset-md-"
-                  src={Sponsor1}
-                  alt="Scholar"
-                  width="80%"
-                />
-              </center>
-            </div>
-          </Link>
-          <Link
-            className="col"
-            target="_blank"
-            to={"https://www.instagram.com/sleeknigeria?igsh=d2xpeTNkaTVuNW5o"}
-          >
-            <div className="sponsors">
-              <br />
-              <center>
-                {" "}
-                <img
-                  className="img  offset-md-"
-                  src={Sponsor2}
-                  alt="Scholar"
-                  width="95%"
-                />
-              </center>
-            </div>
-          </Link>
-          <div className="col">
-            <div className="sponsors">
-              {" "}
-              <center>
-                {" "}
-                <img
-                  className="img  offset-md-"
-                  src={Sponsor3}
-                  alt="Scholar"
-                  width="100%"
-                />
-              </center>
-            </div>
-          </div>
-          <Link
-            className="col"
-            target="_blank"
-            to={"https://www.hexxondiv.com"}
-          >
-            <div className="sponsors">
-              <center>
-                {" "}
-                <img
-                  className="img  offset-md-"
-                  src={Sponsor4}
-                  alt="Scholar"
-                  width="80%"
-                />
-              </center>
-            </div>
-          </Link>{" "}
-          <Link
-            to={
-              "https://www.instagram.com/elixirvictoria?igsh=MXZtbnU2NWc0cGZnNA=="
-            }
-            target="_blank"
-            className="col"
-          >
-            <div className="sponsors">
-              {" "}
-              <center>
-                {" "}
-                <img
-                  className="img  offset-md-"
-                  src={Sponsor5}
-                  alt="Scholar"
-                  width="80%"
-                />
-              </center>
-            </div>
-          </Link>{" "}
-          <div className="col">
-            <div className="sponsors">
-              {" "}
-              <center>
-                {" "}
-                <img
-                  className="img  offset-md-"
-                  src={Sponsor6}
-                  alt="Scholar"
-                  width="50%"
-                />
-              </center>
-            </div>
-          </div>
-        </div>
+       <OurSponsors />
       </div>
     </>
   );
