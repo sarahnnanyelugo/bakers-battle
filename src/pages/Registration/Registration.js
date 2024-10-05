@@ -11,10 +11,12 @@ import axios from "axios";  // Axios for HTTP requests
 import Swal from "sweetalert2";
 import moment from "moment";
 import {formatCurrency, GetPubConfig} from "../../utils/utils";  // Import SweetAlert
+import { toast } from 'react-toastify';
 
 export const Registration = (effect, deps) => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [showPassword, setShowPassword] = useState(false)
+    const [registering, setRegistering] = useState(false)
         const [formData, setFormData] = useState({
             name: "",
             gender: "Male",
@@ -117,6 +119,7 @@ const formatPhoneNumber = (phone) => {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setRegistering(true)
         setErrors({})
         // Format the phone number with country code
     const formattedPhone = formatPhoneNumber(formData?.phone);
@@ -149,15 +152,26 @@ const formatPhoneNumber = (phone) => {
                 localStorage.setItem('contestant', JSON.stringify(contestant));
                 localStorage.setItem('token', token);
                 localStorage.setItem('pk', pk);
-
+                setRegistering(false)
+                // toast.success('Profile created. Proceed to Payment!', { // Show success toast
+                //     autoClose: 1000,
+                //     hideProgressBar: true,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                // });
                 Swal.fire({
-                    title: 'Success!',
-                    text: response.data.message,
+                    title: 'Proceed to Payment',
+                    html: '<h5>Your Profile has been created.</h5><h4>Proceed to Payment</h4>',
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'Proceed'
                 }).then(() => {
-                    window.location.href = "/payment";  // Redirect to /payment
+                window.location.href = "/payment";
                 });
+                setTimeout(()=>{
+                    window.location.href = "/payment";  // Redirect to /payment
+                },3000)
             }
         } catch (error) {
             if (error.response && error.response.data) {
@@ -168,6 +182,7 @@ const formatPhoneNumber = (phone) => {
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
+                setRegistering(false)
             }
         }
     };
@@ -300,14 +315,15 @@ const formatPhoneNumber = (phone) => {
                                 />
                                 <small>Street Address</small>
                                 {errors.address && <small>{errors.address[0]}</small>}
-                                <h6>Your social media handle that best depicts your work</h6>
+                                <h6>Your social media link</h6>
                                 <input
                                     style={{marginTop: "20px"}}
                                     name="social_handle"
+                                    placeholder="e.g: https://www.youtube.com/watch?v=wBw_RnmCPYc"
                                     value={formData?.social_handle}
                                     onChange={handleChange}
                                 />
-                                <small>eg: facebook, instagram, youtube</small>
+                                <small>Link to your url  that best depicts your work. eg: https://www.youtube.com/watch?v=wBw_RnmCPYc</small>
                                 <div
                                     className="row row-cols-2 row-cols-lg-2 g-2 g-lg-3"
                                     style={{marginTop: "20px"}}
@@ -428,10 +444,12 @@ const formatPhoneNumber = (phone) => {
                         </>}
 
                     <center>
-                        {config?.registration_status===1 && <button className="button-57" role="button" onClick={handleSubmit}>
+                        {config?.registration_status===1 && !registering &&
+                        <button className="button-57" role="button" onClick={handleSubmit}>
                             <span className="text">Register</span>
                             <span>Make Payment</span>
                         </button>}
+                        {registering && <button disabled className="btn btn-info">Please Wait...</button> }
 
 
                         <p className='pt-3'>Already registered as a contestant? </p>

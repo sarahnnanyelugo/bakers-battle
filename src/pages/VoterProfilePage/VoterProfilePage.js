@@ -126,7 +126,7 @@ export const VoterProfilePage = () => {
                                 </div>
                                 {" "}
                                 <div className="col">
-                                    <h6>Social media handle</h6>
+                                    <h6>Social media link</h6>
                                     <p>{data?.social_handle}</p>
                                 </div>
                                 {" "}

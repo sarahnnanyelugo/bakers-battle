@@ -227,7 +227,7 @@ export const ContestantsProfile = ({profile, callback,callbackParent}) => {
                                 </div>
                                 {" "}
                                 <div className="col">
-                                    <h6>Social media handle</h6>
+                                    <h6>Social media link</h6>
                                     <Link className={"text-info"} to={data.social_handle} target={'_blank'}>
                                         <p>{data.social_handle}</p></Link>
                                 </div>

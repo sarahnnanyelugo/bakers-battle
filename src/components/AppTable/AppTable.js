@@ -13,6 +13,7 @@ const AppTable = ({callback}) => {
     const [data,setData]=useState(null);
     const [page,setPage]=useState(1);
     const [perPage,setPerPage]=useState(10);
+    const [statusSearch,setStatusSearch]=useState('success');
     const [searchText,setSearchText]=useState("");
     const fetchTable = async () => {
         try {
@@ -20,6 +21,8 @@ const AppTable = ({callback}) => {
             let payload={page:page,per_page:perPage};
             if(searchText)
                 payload.search=searchText;
+            if(statusSearch)
+                payload.status=statusSearch;
             const response = await axios.post(`${baseUrl}/api/admin/contestants/list`, payload, {
                 headers: {
                     Authorization: `Bearer ${authAdmin.token}`, // Using token from authAdmin
@@ -45,7 +48,7 @@ const AppTable = ({callback}) => {
             // Implement API call for the summary data
             fetchTable().then(r =>{} ); // Call the function to fetch data
         }
-    }, [authAdmin, navigate, setAuthAdmin,page,perPage,searchText]);
+    }, [authAdmin, navigate, setAuthAdmin,page,perPage,searchText,statusSearch]);
 
 
     const handlePageShift=(dir)=>{
@@ -54,9 +57,20 @@ const AppTable = ({callback}) => {
     }
     return (
         <div>
-            <div className="d-flex tabled-data">
+            <div className="d-md-flex tabled-data">
                 {" "}
                 <h5 style={{flexGrow: 1}}>Contestants</h5>
+                <div className="form-group">
+                    <div className="input-group">
+                        <div className="input-group-text">Paid Status</div>
+                        <div className="btn-group">
+                            <button onClick={()=>setStatusSearch('success')} className={`btn ${statusSearch=='success'?'btn-success':'btn-outline-success'}`}>Paid</button>
+                            <button onClick={()=>setStatusSearch('pending')} className={`btn ${statusSearch=='pending'?'btn-warning':'btn-outline-warning'}`}>Pending</button>
+                            <button onClick={()=>setStatusSearch('')} className={`btn ${statusSearch==''?'btn-info':'btn-outline-info'}`}>All</button>
+                        </div>
+                    </div>
+                </div>
+                <div>&nbsp;</div>
                 <div>
                     {" "}
                     {/*<button onClick={handleToggleDisplay} className="dashboard-btn">*/}

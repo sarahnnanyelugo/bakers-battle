@@ -145,7 +145,7 @@ export const RechargePage = () => {
                                                    value={formData.phone}
                                                    placeholder="Enter your Phone"/>
                                             <small>(Optional) We can use this to contact you</small>
-                                            <h6>Social Media Handle</h6>
+                                            <h6>Social Media Link</h6>
                                             <input type="text" onChange={handleChange} name='handle'
                                                    value={formData.handle}
                                                    placeholder="E.g: @username"/>
