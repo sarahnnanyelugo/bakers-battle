@@ -133,7 +133,7 @@ const AppTable = ({callback}) => {
                                             height: "25px",
                                         }}
                                     >
-                                        {(item.status=='success'?'paid':(item.status||'pending')).toUpperCase()}
+                                        {(item.status=='success'?(item.amount>0?'paid':'free'):(item.status||'pending')).toUpperCase()}
                                     </button>
                                 </div>
                             </td>

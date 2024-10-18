@@ -153,24 +153,20 @@ const formatPhoneNumber = (phone) => {
                 localStorage.setItem('token', token);
                 localStorage.setItem('pk', pk);
                 setRegistering(false)
-                // toast.success('Profile created. Proceed to Payment!', { // Show success toast
-                //     autoClose: 1000,
-                //     hideProgressBar: true,
-                //     closeOnClick: true,
-                //     pauseOnHover: true,
-                //     draggable: true,
-                //     progress: undefined,
-                // });
+                let html=`<h5>Your Profile has been created.</h5>`
+                if(config?.registration_fee>0)
+                    html = html+`<h4>Proceed to Payment</h4>`
+                const next_page=config?.registration_fee>0?"/payment":"/my-profile"
                 Swal.fire({
                     title: 'Proceed to Payment',
-                    html: '<h5>Your Profile has been created.</h5><h4>Proceed to Payment</h4>',
+                    html: html,
                     icon: 'success',
                     confirmButtonText: 'Proceed'
                 }).then(() => {
-                window.location.href = "/payment";
+                window.location.href = next_page;
                 });
                 setTimeout(()=>{
-                    window.location.href = "/payment";  // Redirect to /payment
+                    window.location.href = next_page;  // Redirect to /payment
                 },3000)
             }
         } catch (error) {
@@ -212,8 +208,8 @@ const formatPhoneNumber = (phone) => {
                                             Application Form
                                         </h2>
                                         <p style={{marginTop: "40px"}}>
-                                            <span>Entry Fee:</span> {formatCurrency(config?.registration_fee)} per
-                                            person
+                                            <span>Entry Fee:</span> {config?.registration_fee<=0?<>FREE</>:<>{formatCurrency(config?.registration_fee)} per
+                                            person</>}
                                         </p>{" "}
                                         <p>
                                             <span>Awards:</span> Consult <Flier/>

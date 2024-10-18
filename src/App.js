@@ -39,7 +39,7 @@ function App() {
                     <Route path="/sponsors" element={<Sponsors/>}/>{" "}
                     <Route path="/about" element={<About/>}/>{" "}
                     <Route path="/payment" element={<PaymentPage/>}/>{" "}
-                    <Route path="//payment-wallet" element={<PaymentPage/>}/>{" "}
+                    <Route path="/payment-wallet" element={<PaymentPage/>}/>{" "}
                     <Route path="dashboard" element={<AdminDashboard/>}/>{" "}
                     <Route path="voting-page" element={<VotingPage/>}/>{" "}
                     <Route path="success-page" element={<SuccessPage/>}/>{" "}
