@@ -127,8 +127,8 @@ export const Navbar = () => {
 
             <div className="app-nav d-flex">
                 <div
-                    className="col-md-2 offset-md-1"
-                    style={{position: "relative", zIndex: 220}}
+                    className="col-md-2 offset-md-1 nav-inner"
+                   
                 >
                     {" "}
                     <Link to={"/"}>

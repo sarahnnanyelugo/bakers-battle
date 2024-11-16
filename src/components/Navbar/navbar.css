@@ -182,4 +182,9 @@ label {
   .app-logo {
     width: 20%;
   }
+}
+
+.nav-inner {
+  position: relative;
+  z-index: 20;
 }/*# sourceMappingURL=navbar.css.map */
