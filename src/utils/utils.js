@@ -1,5 +1,6 @@
 import axios from "axios";
-import { toast } from 'react-toastify';
+import {toast} from 'react-toastify';
+
 /**
  * Formats a number as currency.
  * @param {number} value - The number to format.
@@ -13,6 +14,7 @@ export function formatCurrency(value, locale = 'en-NG', currency = 'NGN') {
         currency: currency,
     }).format(value);
 }
+
 /**
  * Formats a number with commas for thousands, millions, etc., without the currency symbol.
  * @param {number} value - The number to format.
@@ -22,56 +24,77 @@ export function formatCurrency(value, locale = 'en-NG', currency = 'NGN') {
 export function formatNumber(value, locale = 'en-NG') {
     return new Intl.NumberFormat(locale).format(value);
 }
+
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
-export async function GetPubConfig(){
+export async function GetPubConfig() {
     try {
         const response = await axios.post(`${baseUrl}/api/index`);
         return response.data;
-    }catch (e) {
+    } catch (e) {
         return null;
     }
 }
 
-export async function GetAdminConfig(){
-    const token = localStorage.getItem('token')
-    if(!token) return null;
+export async function GetRechargeHistory() {
     try {
-        const response = await axios.post(`${baseUrl}/api/admin/get-configurations`,{},{headers: {
+        const token = localStorage.getItem('token')
+        if (!token) return null;
+        const response = await axios.post(`${baseUrl}/api/recharge-history`, {}, {
+            headers: {
                 Authorization: `Bearer ${token}`, // Using token
-            },});
+            },
+        });
         return response.data;
-    }catch (e) {
-        return null;
-    }
-}
-export async function GetVoter(){
-    const token = localStorage.getItem('token')
-    if(!token) return null;
-    try {
-        const response = await axios.post(`${baseUrl}/api/voter`,{},{headers: {
-                Authorization: `Bearer ${token}`, // Using token
-            },});
-        return response.data;
-    }catch (e) {
+    } catch (e) {
         return null;
     }
 }
 
-export async function GetStages(){
+export async function GetAdminConfig() {
+    const token = localStorage.getItem('token')
+    if (!token) return null;
+    try {
+        const response = await axios.post(`${baseUrl}/api/admin/get-configurations`, {}, {
+            headers: {
+                Authorization: `Bearer ${token}`, // Using token
+            },
+        });
+        return response.data;
+    } catch (e) {
+        return null;
+    }
+}
+
+export async function GetVoter() {
+    const token = localStorage.getItem('token')
+    if (!token) return null;
+    try {
+        const response = await axios.post(`${baseUrl}/api/voter`, {}, {
+            headers: {
+                Authorization: `Bearer ${token}`, // Using token
+            },
+        });
+        return response.data;
+    } catch (e) {
+        return null;
+    }
+}
+
+export async function GetStages() {
     try {
         const response = await axios.post(`${baseUrl}/api/get-stages`);
         return response.data;
-    }catch (e) {
+    } catch (e) {
         return null;
     }
 }
 
-export async function GetVoteStanding(){
+export async function GetVoteStanding() {
     try {
         const response = await axios.post(`${baseUrl}/api/get-vote-standing`);
         return response.data;
-    }catch (e) {
+    } catch (e) {
         return null;
     }
 }
@@ -97,7 +120,7 @@ export const submitVote = async (contestantId) => {
 
         const response = await axios.post(
             `${baseUrl}/api/vote`,
-            { contestantId },
+            {contestantId},
             {
                 headers: {
                     Authorization: `Bearer ${token}`, // Use Bearer authentication
@@ -117,7 +140,7 @@ export const submitVote = async (contestantId) => {
         }
         return response.data; // Return the response data
     } catch (error) {
-        toast.error(error?.response?.data?.error||error?.response?.data?.message||'Error submitting vote. Please try again!', { // Show error toast
+        toast.error(error?.response?.data?.error || error?.response?.data?.message || 'Error submitting vote. Please try again!', { // Show error toast
             position: "bottom-left",
             autoClose: 1000,
             hideProgressBar: true,
